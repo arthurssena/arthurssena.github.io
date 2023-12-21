@@ -102,7 +102,7 @@ section {
     display: inline-block;
     font-size: 5.12rem; /* change here */
     font-weight: 700;
-    line-height: 3;
+    line-height: 1.2;
 }
 
 .home-content h1 span {
@@ -160,7 +160,9 @@ section {
 .home .home-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 5rem;
+    gap: 10rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .home .home-column {
