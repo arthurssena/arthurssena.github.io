@@ -79,7 +79,7 @@ body {
 }
 
 section {
-    min-height: 130vh;
+    min-height: 100vh;
     padding: 10rem 9% 2rem;
 }
 
@@ -102,7 +102,7 @@ section {
     display: inline-block;
     font-size: 5.12rem; /* change here */
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 3;
 }
 
 .home-content h1 span {
@@ -179,7 +179,7 @@ section {
     position: relative;
     display: inline-block;
     font-size: 2.5rem;
-    margin: 0 0 2.5rem;
+    margin: 0 0 1.5rem;
 }
 
 
@@ -246,8 +246,8 @@ section {
 
 .home-sci {
     position: relative;
-    bottom: 4rem;
-    width: 170px;
+    bottom: 0rem;
+    width: 180px;
     display: flex;
     justify-content: space-between;
 }
