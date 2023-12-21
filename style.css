@@ -170,11 +170,10 @@ section {
     flex-wrap: wrap;
     gap: 5rem;
     justify-content: center;
-    align-items: center;
 }
 
 .home-row .home-column {
-    flex: 1.7 .4 40rem;
+    flex: 1 1 40rem;
 }
 
 .home-column .title {
