@@ -84,8 +84,9 @@ section {
 }
 
 .home {
-    display: absolute;
+    display: flex;
     align-items: center;
+    flex-direction: column;
     padding: 0 9%;
     background: url('/images/odd_pages.png') no-repeat;
     background-size: cover;
@@ -163,7 +164,6 @@ section {
     gap: 10rem;
     justify-content: center;
     align-items: center;
-    flex-direction:row;
 }
 
 .home .home-column {
@@ -171,8 +171,6 @@ section {
     display: flex;
     flex-wrap: wrap;
     gap: 5rem;
-    justify-content: center;
-    
 }
 
 .home-row .home-column {
@@ -251,7 +249,7 @@ section {
 .home-sci {
     position: relative;
     bottom: 3rem;
-    width: 280px;
+    width: 180px;
     display: flex;
     justify-content: space-between;
 }
