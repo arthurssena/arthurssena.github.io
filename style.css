@@ -86,8 +86,9 @@ section {
 .home {
     display: flex;
     align-items: center;
+    flex-direction: column;
     padding: 0 9%;
-    background: url('/images/home.png') no-repeat;
+    background: url('/images/odd_pages.png') no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -248,8 +249,8 @@ section {
 
 .home-sci {
     position: relative;
-    bottom: 0rem;
-    width: 180px;
+    bottom: 10rem;
+    width: 280px;
     display: flex;
     justify-content: space-between;
 }
