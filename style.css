@@ -173,7 +173,7 @@ section {
     flex-wrap: wrap;
     gap: 5rem;
     justify-content: center;
-    flex-direction: column;
+    
 }
 
 .home-row .home-column {
