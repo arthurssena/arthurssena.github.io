@@ -164,6 +164,7 @@ section {
     gap: 10rem;
     justify-content: center;
     align-items: center;
+    flex-direction:row;
 }
 
 .home .home-column {
@@ -172,6 +173,7 @@ section {
     flex-wrap: wrap;
     gap: 5rem;
     justify-content: center;
+    flex-direction: column;
 }
 
 .home-row .home-column {
