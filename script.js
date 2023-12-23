@@ -18,8 +18,7 @@ window.onscroll = () => {
         let height = sec.offsetHeight;
         let id = sec.getAttribute('id');
 
-        // if(top >= offset && top < offset + height) {
-        if(1) {
+        if(top >= offset && top < offset + height) {
             // active navbar links
             navLinks.forEach(links => {
                 links.classList.remove('active');
@@ -30,9 +29,9 @@ window.onscroll = () => {
         }
         // if want to animation that repeats on scroll use this
         else {
-            sec.classList.remove('show-animate');
+            //sec.classList.remove('show-animate');
         }
-    });
+    }); 
 
     // sticky navbar
     let header = document.querySelector('header');
