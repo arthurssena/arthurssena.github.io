@@ -250,7 +250,7 @@ section {
 .home-sci {
     position: relative;
     bottom: 3rem;
-    width: 220px;
+    width: 230px;
     display: flex;
     justify-content: space-between;
 }
@@ -260,8 +260,8 @@ section {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     background: transparent;
     border: .2rem solid var(--main-color);
     border-radius: 50%;
