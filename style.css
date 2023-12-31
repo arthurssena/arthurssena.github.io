@@ -513,7 +513,7 @@ span {
 
 .Publications-box .Publications-content {
     position: relative;
-    border: .2rem solid var(--main-color);
+    border: .2rem solid #135f95;
     border-radius: .6rem;
     padding: .5rem 1.5rem;
     z-index: 1;
@@ -528,7 +528,7 @@ span {
     left: 0;
     width: 0;
     height: 100%;
-    background: var(--bg-color);
+    background: #135f95;
     z-index: -1;
     transition: .5s;
 }
