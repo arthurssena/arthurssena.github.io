@@ -475,12 +475,8 @@ span {
     padding-top: .5rem;
 }
 
-em{
-    font-style: normal;
-}
-
-.education-content .content em {
-    color:  var(--main-color);
+.education-content .content p span {
+    color: var(--main-color);
 }
 
 .Publications {
