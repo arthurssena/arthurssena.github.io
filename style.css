@@ -947,6 +947,11 @@ section:nth-child(odd) .animate.scroll,
         width: 38px;
         height: 38px;
     }
+
+    .home-content .text-animate {
+        position: relative;
+        width: 25.8rem;
+    }
 }
 
 @media (max-width: 462px) {
@@ -970,6 +975,11 @@ section:nth-child(odd) .animate.scroll,
         margin-top: 2rem;
         text-align: center;
     }
+
+    .home-content .text-animate {
+        position: relative;
+        width: 25.8rem;
+    }
 }
 
 @media (max-width: 371px) {
@@ -986,6 +996,11 @@ section:nth-child(odd) .animate.scroll,
 
     .home-content h1 {
         font-size: 5rem;
+    }
+
+    .home-content .text-animate {
+        position: relative;
+        width: 25.8rem;
     }
 }
 
