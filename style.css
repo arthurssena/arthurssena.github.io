@@ -112,7 +112,7 @@ section {
 
 .home-content .text-animate {
     position: relative;
-    width: 25.3rem;
+    width: 25.8rem;
 }
 
 .home-content .text-animate h3 {
@@ -921,6 +921,11 @@ section:nth-child(odd) .animate.scroll,
         pointer-events: none;
         background: var(--bg-color);
         opacity: .6;
+    }
+
+    .home-content .text-animate {
+        position: relative;
+        width: 25.4rem;
     }
 }
 
