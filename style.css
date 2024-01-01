@@ -405,9 +405,9 @@ span {
 
 .education-column .title {
     position: relative;
-    display: inline-block;
-    font-size: 2.5rem;
+    font-size: 4rem;
     margin: 0 0 1.5rem 2rem;
+    text-align: center;
 }
 
 .education-column .education-box {
@@ -447,13 +447,13 @@ span {
     left: 0;
     width: 0;
     height: 100%;
-    background: #0d4268;
     z-index: -1;
     transition: .5s;
 }
 
 .education-content .content:hover::before {
     width: 100%;
+    background: #0d4268;
 }
 
 .education-content .content .year {
@@ -532,13 +532,13 @@ span {
     left: 0;
     width: 0;
     height: 100%;
-    background: #0d4268;
     z-index: -1;
     transition: .5s;
 }
 
 .publications-box .publications-content:hover::before {
     width: 100%;
+    background: #0d4268;
 }
 
 .publications-content .progress {
