@@ -628,6 +628,19 @@ span {
     color: var(--main-color);
 }
 
+.publications-box h4 {
+    padding: .5rem 0 0 0;
+    font-size: 2.2rem;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    left:25%;
+}
+
+.publications-box h3 span {
+    color: var(--main-color);
+}
+
 
 .citations-content .progress {
     padding: .4rem 0;
