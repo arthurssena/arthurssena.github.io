@@ -625,6 +625,7 @@ span {
     align-content: center;
     width: 50%;
     left:26%;
+    font-weight: normal;
 }
 
 .publications-box h5 span {
