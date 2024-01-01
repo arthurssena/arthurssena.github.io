@@ -434,7 +434,7 @@ span {
 .education-content .content {
     position: relative;
     padding: 1.5rem;
-    border: .2rem solid var(--main-color);
+    border: .2rem solid #0d4268;
     border-radius: .6rem;
     margin-bottom: 2rem;
     overflow: hidden;
@@ -447,7 +447,7 @@ span {
     left: 0;
     width: 0;
     height: 100%;
-    background: var(--second-bg-color);
+    background: #0d4268;
     z-index: -1;
     transition: .5s;
 }
@@ -479,45 +479,45 @@ span {
     color: var(--main-color);
 }
 
-.Publications {
+.publications {
     min-height: auto;
     padding-bottom: 7rem;
-    background: var(--second-bg-color);
+    background-image: linear-gradient(#081b29, #05111a);
 }
 
-.Publications h2 {
+.publications h2 {
     display: inline-block;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.Publications .Publications-row {
+.publications .publications-row {
     display: flex;
     flex-wrap: wrap;
     gap: 5rem;
 }
 
-.Publications-row .Publications-column {
+.publications-row .publications-column {
     flex: 1 1 40rem;
     justify-content: center;
     align-items: center;
     padding: auto;
 }
 
-.Publications-column .title {
+.publications-column .title {
     position: relative;
     display: inline-block;
     font-size: 2.5rem;
     margin: 0 0 1.5rem;
 }
 
-.Publications-column .Publications-box {
+.publications-column .publications-box {
     position: relative;
 }
 
-.Publications-box .Publications-content {
+.publications-box .publications-content {
     position: relative;
-    border: .2rem solid #135f95;
+    border: .2rem solid #0d4268;
     border-radius: .6rem;
     padding: .5rem 1.5rem;
     z-index: 1;
@@ -525,37 +525,37 @@ span {
     font-size: 1.2rem;
 }
 
-.Publications-box .Publications-content::before {
+.publications-box .publications-content::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 0;
     height: 100%;
-    background: #135f95;
+    background: #0d4268;
     z-index: -1;
     transition: .5s;
 }
 
-.Publications-box .Publications-content:hover::before {
+.publications-box .publications-content:hover::before {
     width: 100%;
 }
 
-.Publications-content .progress {
+.publications-content .progress {
     padding: 1rem 0;
 }
 
-.Publications-content .progress h3 {
+.publications-content .progress h3 {
     font-size: 1.7rem;
     display: flex;
     justify-content: space-between;
 }
 
-.Publications-content .progress h3 span {
+.publications-content .progress h3 span {
     color: var(--text-color);
 }
 
-.Publications-content .progress .bar {
+.publications-content .progress .bar {
     height: 2.5rem;
     border-radius: .6rem;
     border: .2rem solid var(--main-color);
@@ -563,42 +563,42 @@ span {
     margin: 1rem 0;
 }
 
-.Publications-content .progress .bar span {
+.publications-content .progress .bar span {
     display: block;
     height: 100%;
     border-radius: .3rem;
     background: var(--main-color);
 }
 
-.Publications-column:nth-child(1) .Publications-content .progress:nth-child(1) .bar span {
+.publications-column:nth-child(1) .publications-content .progress:nth-child(1) .bar span {
     width: 90%;
 }
 
-.Publications-column:nth-child(1) .Publications-content .progress:nth-child(2) .bar span {
+.publications-column:nth-child(1) .publications-content .progress:nth-child(2) .bar span {
     width: 80%;
 }
 
-.Publications-column:nth-child(1) .Publications-content .progress:nth-child(3) .bar span {
+.publications-column:nth-child(1) .publications-content .progress:nth-child(3) .bar span {
     width: 65%;
 }
 
-.Publications-column:nth-child(1) .Publications-content .progress:nth-child(4) .bar span {
+.publications-column:nth-child(1) .publications-content .progress:nth-child(4) .bar span {
     width: 75%;
 }
 
-.Publications-column:nth-child(2) .Publications-content .progress:nth-child(1) .bar span {
+.publications-column:nth-child(2) .publications-content .progress:nth-child(1) .bar span {
     width: 95%;
 }
 
-.Publications-column:nth-child(2) .Publications-content .progress:nth-child(2) .bar span {
+.publications-column:nth-child(2) .publications-content .progress:nth-child(2) .bar span {
     width: 67%;
 }
 
-.Publications-column:nth-child(2) .Publications-content .progress:nth-child(3) .bar span {
+.publications-column:nth-child(2) .publications-content .progress:nth-child(3) .bar span {
     width: 85%;
 }
 
-.Publications-column:nth-child(2) .Publications-content .progress:nth-child(4) .bar span {
+.publications-column:nth-child(2) .publications-content .progress:nth-child(4) .bar span {
     width: 60%;
 }
 
@@ -779,7 +779,7 @@ section:nth-child(odd) .animate.scroll,
 
 .about.show-animate .animate.scroll,
 .education.show-animate .animate.scroll,
-.Publications.show-animate .animate.scroll,
+.publications.show-animate .animate.scroll,
 .contact.show-animate .animate.scroll,
 .footer.show-animate .animate.scroll {
     transition-delay: calc(.3s * var(--i));
