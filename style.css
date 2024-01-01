@@ -519,6 +519,8 @@ span {
     display: inline-block;
     left: 50%;
     transform: translateX(-50%);
+    
+
 }
 
 .publications .publications-row {
@@ -540,6 +542,7 @@ span {
     font-size: 3.5rem;
     margin: 0 0 1.5rem;
 }
+
 
 .publications-column .publications-box {
     position: relative;
@@ -571,66 +574,106 @@ span {
     background: #0d4268;
 }
 
-.publications-content .progress {
-    padding: 1rem 0;
+
+.publications-column .citations {
+    position: relative;
+    display: inline-block;
+    font-size: 2.5rem;
+    margin: 0 0 1.5rem;
 }
 
-.publications-content .progress h3 {
-    font-size: 1.7rem;
+
+.publications-box .citations-content {
+    position: relative;
+    width: 50%;
+    position:absolute;
+    left:25%;
+}
+
+
+
+.publications-box .citations-content {
+    position: relative;
+    border: .2rem solid #0d4268;
+    border-radius: .6rem;
+    padding: .5rem 1.5rem;
+    z-index: 1;
+    overflow: hidden;
+    font-size: 1.4rem;
+}
+
+.publications-box .citations-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    transition: .5s;
+}
+
+.publications-box .citations-content:hover::before {
+    width: 100%;
+    background: #0d4268;
+}
+
+
+.publications-box p {
+    padding: .5rem 38rem 0 0;
+    font-size: 1.2rem;
+}
+
+.publications-box p span {
+    color: var(--main-color);
+}
+
+
+.citations-content .progress {
+    padding: .4rem 0;
+}
+
+.citations-content .progress h3 {
+    font-size: 1.4rem;
     display: flex;
     justify-content: space-between;
 }
 
-.publications-content .progress h3 span {
+.citations-content .progress h3 span {
     color: var(--text-color);
 }
 
-.publications-content .progress .bar {
-    height: 2.5rem;
+.citations-content .progress .bar {
+    height: 1.2rem;
     border-radius: .6rem;
     border: .2rem solid var(--main-color);
-    padding: .5rem;
-    margin: 1rem 0;
+    padding: .2rem;
+    margin: .1rem 0;
 }
 
-.publications-content .progress .bar span {
+.citations-content .progress .bar span {
     display: block;
     height: 100%;
     border-radius: .3rem;
     background: var(--main-color);
 }
 
-.publications-column:nth-child(1) .publications-content .progress:nth-child(1) .bar span {
+.publications-column:nth-child(1) .citations-content .progress:nth-child(1) .bar span {
+    width: 86%;
+}
+
+.publications-column:nth-child(1) .citations-content .progress:nth-child(2) .bar span {
     width: 90%;
 }
 
-.publications-column:nth-child(1) .publications-content .progress:nth-child(2) .bar span {
-    width: 80%;
+.publications-column:nth-child(1) .citations-content .progress:nth-child(3) .bar span {
+    width: 42%;
 }
 
-.publications-column:nth-child(1) .publications-content .progress:nth-child(3) .bar span {
-    width: 65%;
+.publications-column:nth-child(1) .citations-content .progress:nth-child(4) .bar span {
+    width: 7%;
 }
 
-.publications-column:nth-child(1) .publications-content .progress:nth-child(4) .bar span {
-    width: 75%;
-}
-
-.publications-column:nth-child(2) .publications-content .progress:nth-child(1) .bar span {
-    width: 95%;
-}
-
-.publications-column:nth-child(2) .publications-content .progress:nth-child(2) .bar span {
-    width: 67%;
-}
-
-.publications-column:nth-child(2) .publications-content .progress:nth-child(3) .bar span {
-    width: 85%;
-}
-
-.publications-column:nth-child(2) .publications-content .progress:nth-child(4) .bar span {
-    width: 60%;
-}
 
 .contact {
     min-height: auto;
