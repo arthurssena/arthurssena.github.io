@@ -619,15 +619,15 @@ span {
 }
 
 
-.publications-box p {
+.publications-box h5 {
     padding: .5rem 0 0 0;
     font-size: 1.3rem;
-    align-content: left;
+    align-content: center;
     width: 50%;
     left:26%;
 }
 
-.publications-box p span {
+.publications-box h5 span {
     color: var(--main-color);
 }
 
@@ -640,7 +640,7 @@ span {
     left:25%;
 }
 
-.publications-box h3 span {
+.publications-box h4 span {
     color: var(--main-color);
 }
 
