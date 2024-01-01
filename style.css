@@ -349,14 +349,44 @@ span {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(0);
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     border-radius: 50%;
-    border-top: .2rem solid var(--second-bg-color);
-    border-bottom: .2rem solid var(--second-bg-color);
-    border-left: .2rem solid var(--main-color);
-    border-right: .2rem solid var(--main-color);
-    animation: aboutSpinner 8s linear infinite;
+    /* border-top: 0.1rem solid #13639c; */
+    /* border-bottom: .8rem solid #13639c; */
+    border-left: 1.1rem solid #13639c;
+    border-right: 1.1rem solid #13639c;
+    animation: aboutSpinner 6s linear infinite;
+}
+
+.about-img .circle-spin3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0);
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    border-top: 0.2rem solid #1d86d1;
+    border-bottom: .2rem solid #1d86d1;
+    /* border-left: .5rem solid #0d4871; */
+    /* border-right: .5rem solid #0d4871; */
+    animation: aboutSpinner 7s linear infinite;
+}
+
+.about-img .circle-spin2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0);
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    border-top: .9rem solid #0d3450;
+    border-bottom: .6rem solid #0d3450;
+    /* border-left: 0.9rem solid #13639c;
+    border-right: 0.9rem solid #13639c; */
+    animation: aboutSpinner2 4s linear infinite;
 }
 
 .about-content {
@@ -507,7 +537,7 @@ span {
 .publications-column .title {
     position: relative;
     display: inline-block;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     margin: 0 0 1.5rem;
 }
 
@@ -522,7 +552,7 @@ span {
     padding: .5rem 1.5rem;
     z-index: 1;
     overflow: hidden;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 
 .publications-box .publications-content::before {
@@ -992,6 +1022,12 @@ section:nth-child(odd) .animate.scroll,
 }
 
 @keyframes aboutSpinner {
+    100% {
+        transform: translate(-50%, -50%) rotate(-360deg);
+    }
+}
+
+@keyframes aboutSpinner2 {
     100% {
         transform: translate(-50%, -50%) rotate(360deg);
     }
