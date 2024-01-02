@@ -662,8 +662,8 @@ span {
 
 .citations-content .progress .bar {
     height: 1.2rem;
-    border-radius: .6rem;
-    border: .2rem solid var(--main-color);
+    border-radius: .2rem;
+    border: .1rem solid var(--main-color);
     padding: .2rem;
     margin: .1rem 0;
 }
@@ -671,12 +671,12 @@ span {
 .citations-content .progress .bar span {
     display: block;
     height: 100%;
-    border-radius: .3rem;
+    border-radius: .1rem;
     background: var(--main-color);
 }
 
 .publications-column:nth-child(1) .citations-content .progress:nth-child(1) .bar span {
-    width: 86%;
+    width: 88%;
 }
 
 .publications-column:nth-child(1) .citations-content .progress:nth-child(2) .bar span {
