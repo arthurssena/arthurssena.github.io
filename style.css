@@ -585,9 +585,9 @@ span {
 
 .publications-box .citations-content {
     position: relative;
-    width: 50%;
+    width: 60%;
     position:absolute;
-    left:25%;
+    left:20%;
 }
 
 
@@ -623,8 +623,8 @@ span {
     padding: .5rem 0 0 0;
     font-size: 1.3rem;
     align-content: center;
-    width: 50%;
-    left:26%;
+    width: 60%;
+    left:21%;
     font-weight: normal;
 }
 
@@ -638,8 +638,8 @@ span {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    width: 50%;
-    left:25%;
+    width: 60%;
+    left:20%;
 }
 
 .publications-box h4 span {
