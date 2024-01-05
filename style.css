@@ -458,6 +458,18 @@ span {
 
 .education-row .education-column {
     flex: 1 1 40rem;
+
+}
+
+.education-row .education-column::before {
+    position: absolute;
+    content: '';
+    
+    margin-top: 6rem;
+    margin-left: -.7rem;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 18px solid var(--main-color);
 }
 
 .education-column .title {
@@ -480,10 +492,10 @@ span {
 .education-box .education-content::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: -1.1rem;
-    width: 2rem;
-    height: 2rem;
+    top: 5rem;
+    left: -.7rem;
+    width: 1.2rem;
+    height: 1.2rem;
     background: var(--main-color);
     border-radius: 50%;
 }
@@ -1215,7 +1227,8 @@ section:nth-child(odd) .animate.scroll,
     --bg-color: #fafafa;
     --second-bg-color: #c7e9ff;
     --third-bg-color: #eaf6ff;
-    --text-color: #61adcb;
+    /* --text-color: #61adcb; */
+    --text-color: #58b1cf;
     --main-color: #0092cc;
     --color-circ_1: #58b3dd;
     --color-circ_2: #4c7192;
