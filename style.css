@@ -16,8 +16,9 @@
     --second-bg-color: #112e42;
     --third-bg-color: #091822;
     --text-color: #ededed;
+    --text-color2: #b7e5ff;
+    --ext-link-color:#ededed;
     --header-color: #ededed;
-    --text-color-light: #051423;
     --main-color: #00abf0;
     --color-circ_1: #13639c;
     --color-circ_2: #1d86d1;
@@ -171,8 +172,10 @@ section {
 
 .home-content p {
     position: relative;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
+    font-weight: 120;
     margin: 2rem 0 4rem;
+    color: var(--text-color);
 }
 
 .home-box {
@@ -209,7 +212,7 @@ section {
 
 .external-link{
     font-size: 20px;
-    color:var(--text-color);
+    color:var(--ext-link-color);
     cursor: pointer;
 }
 
@@ -398,7 +401,7 @@ span {
     border-bottom: .2rem solid var(--color-circ_2);
     /* border-left: .5rem solid #0d4871; */
     /* border-right: .5rem solid #0d4871; */
-    animation: aboutSpinner 7s linear infinite;
+    animation: aboutSpinner 8s linear infinite;
 }
 
 .about-img .circle-spin2 {
@@ -543,10 +546,11 @@ span {
 .education-content .content p {
     font-size: 1.6rem;
     padding-top: .5rem;
+    font-weight: 120;
 }
 
 .education-content .content p span {
-    color: var(--text-color);
+    color: var(--main-color);
 }
 
 .publications {
@@ -596,7 +600,8 @@ span {
     padding: .5rem 1.5rem;
     z-index: 1;
     overflow: hidden;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    font-weight: 120;
 }
 
 .publications-box .publications-content::before {
@@ -659,6 +664,25 @@ span {
     background: var(--content_box_color);
 }
 
+
+
+.hoverTable{
+    width:100%; 
+    border-collapse: collapse; 
+}
+
+/* Define the hover highlight color for the table row */
+.hoverTable tr:hover {
+    color: var(--text-color2);
+    --ext-link-color: var(--text-color2);
+    transition-delay: 2s;
+    transition: 1s ease;
+}
+
+
+.publications-box td:hover::before{
+    color: var(--text-color2);
+}
 
 .publications-box h5 {
     padding: .5rem 0 0 0;
@@ -1227,12 +1251,16 @@ section:nth-child(odd) .animate.scroll,
     --bg-color: #fafafa;
     --second-bg-color: #c7e9ff;
     --third-bg-color: #eaf6ff;
-    /* --text-color: #61adcb; */
-    --text-color: #58b1cf;
+    /* --text-color2: #0083b3; */
+    --text-color2: #3e4a4e;
+    /* --text-color: #58b1cf; */
+    --text-color: #6d8996;
+    /* --ext-link-color: #58b1cf; */
+    --ext-link-color: #6d8996;
     --main-color: #0092cc;
-    --color-circ_1: #58b3dd;
-    --color-circ_2: #4c7192;
-    --color-circ_3: #008ee1;
+    --color-circ_1: #007aaf;
+    --color-circ_2: #6e8791;
+    --color-circ_3: #32a8da;
     --content_box_color: #d3edff;
     --header-color: #007aaf;
     --title-color: #0092cc;
@@ -1250,7 +1278,7 @@ section:nth-child(odd) .animate.scroll,
 .themeIconDark{
     position: absolute;
     font-size: 25px;
-    color:var(--text-color);
+    color:var(--main-color);
     filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));
     transition: 1s ease;
     transform: scale(0);
