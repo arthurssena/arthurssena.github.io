@@ -466,7 +466,7 @@ span {
     content: '';
     
     margin-top: 6rem;
-    margin-left: -.7rem;
+    margin-left: -.75rem;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-bottom: 18px solid var(--main-color);
