@@ -801,15 +801,13 @@ span {
     position: relative;
     animation: item-height 1s ease forwards
 }
+
+
 @keyframes item-height { from { height: 0 } }
 
 .citations-content .simple-bar-chart > .item > * { position: absolute; text-align: center }
 .citations-content .simple-bar-chart > .item > .label { inset: 100% 0 auto 0 }
 .citations-content .simple-bar-chart > .item > .value { inset: auto 0 100% 0 }
-
-
-
-
 
 
 .contact {
