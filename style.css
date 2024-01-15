@@ -16,7 +16,8 @@
     --second-bg-color: #112e42;
     --third-bg-color: #091822;
     --text-color: #ededed;
-    --text-color2: #b7e5ff;
+    --link-color: #a8ddff;
+    --text-color2: #42baff;
     --ext-link-color:#ededed;
     --header-color: #ededed;
     --main-color: #00abf0;
@@ -105,6 +106,43 @@ section {
     padding: 10rem 9% 2rem;
 }
 
+.interests {
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    padding: 0 9.5%;
+    height: auto;
+}
+
+.interests ul {
+    position: relative;
+    font-size: 1.7rem;
+    font-weight: 120;
+    margin: 0rem 2.5rem 0rem;
+    color: var(--text-color);
+}
+
+.interests ul li {
+    padding: .2rem;
+}
+
+.interests h2 {
+    position: relative;
+    display: inline-block;
+    font-size: 2.5rem;
+    margin: 2rem 0 1.5rem;
+    color: var(--title-color);
+}
+
+.interests h2 span {
+    color: var(--header-color);
+}
+
+.interests .text-animate {
+    position: relative;
+    width: 25.8rem;
+}
+
 .home {
     display: flex;
     align-items: center;
@@ -178,6 +216,12 @@ section {
     color: var(--text-color);
 }
 
+.home-content a {
+    color: var(--link-color);
+    font-weight: 400;
+}
+
+
 .home-box {
     columns: 2 auto;
 }
@@ -202,12 +246,7 @@ section {
     flex: 1 1 40rem;
 }
 
-.home-column .title {
-    position: relative;
-    display: inline-block;
-    font-size: 2.5rem;
-    margin: 0 0 1.5rem;
-}
+
 
 
 .external-link{
@@ -480,7 +519,7 @@ span {
     position: relative;
     font-size: 4rem;
     margin: 0 0 1.5rem 2rem;
-    text-align: center;
+    text-align: left;
 }
 
 .education-column .education-box {
@@ -571,7 +610,8 @@ span {
 .publications .publications-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 5rem;
+    gap: .05rem;
+    counter-reset: publicationIndex;
 }
 
 .publications-row .publications-column {
@@ -592,6 +632,7 @@ span {
 
 .publications-column .publications-box {
     position: relative;
+    width: 100%;
 }
 
 .publications-box .publications-content {
@@ -603,6 +644,7 @@ span {
     overflow: hidden;
     font-size: 1.5rem;
     font-weight: 120;
+    
 }
 
 .publications-box .publications-content::before {
@@ -614,6 +656,7 @@ span {
     height: 100%;
     z-index: -1;
     transition: .5s;
+    counter-increment: publicationIndex;
 }
 
 .publications-box .publications-content:hover::before {
@@ -665,6 +708,18 @@ span {
     background: var(--content_box_color);
 }
 
+table {
+    width: 100%;
+}
+
+table tr::before {
+    display: table-cell;
+    content:"[" counter(publicationIndex) "]";
+    padding-right: 2em;
+    padding-top: 0.8em;
+    text-align: center;
+    align-items: center;
+}
 
 
 .hoverTable{
@@ -964,8 +1019,14 @@ span {
 
 .logo .animate,
 .navbar .animate,
+.interests .animate,
 #menu-icon .animate,
 .home.show-animate .animate {
+    animation: showRight 1s ease forwards;
+    animation-delay: calc(.3s * var(--i));
+}
+
+.interests.show-animate .animate {
     animation: showRight 1s ease forwards;
     animation-delay: calc(.3s * var(--i));
 }
@@ -986,6 +1047,7 @@ section:nth-child(odd) .animate.scroll,
 }
 
 .about.show-animate .animate.scroll,
+.interests.show-animate .animate.scroll,
 .education.show-animate .animate.scroll,
 .publications.show-animate .animate.scroll,
 .contact.show-animate .animate.scroll,
@@ -1255,6 +1317,7 @@ section:nth-child(odd) .animate.scroll,
     /* --text-color: #58b1cf; */
     --text-color: #6d8996;
     /* --ext-link-color: #58b1cf; */
+    --link-color: #607b87;
     --ext-link-color: #6d8996;
     --main-color: #0092cc;
     --color-circ_1: #007aaf;
