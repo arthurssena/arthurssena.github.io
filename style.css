@@ -816,9 +816,7 @@ table tr::before {
     font-size: 2.2rem;
     display: flex;
     align-items: baseline;
-    justify-content: space-between;
-    width: 60%;
-    left:20%;
+    justify-content: space-around;
 }
 
 .publications-box h4 span {
@@ -1101,7 +1099,7 @@ section:nth-child(odd) .animate.scroll,
 }
 
 .education .education-box .animate.scroll {
-    width: 105%;
+    width: 100%;
 }
 
 .about.show-animate .animate.scroll,
