@@ -183,7 +183,7 @@ section {
 
 .home-content a {
     color: var(--link-color);
-    font-weight: 400;
+    font-weight: 500;
 }
 
 
@@ -662,10 +662,15 @@ span {
 
 }
 
+.publications a {
+    color: var(--link-color);
+    font-weight: 500;
+}
+
 .publications .publications-row {
     display: flex;
     flex-wrap: wrap;
-    gap: .05rem;
+    gap: .5rem;
     counter-reset: publicationIndex;
 }
 
