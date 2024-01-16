@@ -1127,7 +1127,6 @@ section:nth-child(odd) .animate.scroll,
 @media (max-width: 1200px) {
     html {
         font-size: 55%;
-        margin-left: 0px;
     }
 }
 
