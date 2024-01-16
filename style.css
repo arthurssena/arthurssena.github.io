@@ -311,6 +311,7 @@ section {
     color:var(--ext-link-color);
     cursor: pointer;
     margin-left: 1.5rem;
+    text-align: right;
 }
 
 
@@ -743,7 +744,9 @@ span {
 
 .publications-column .publications-box {
     position: relative;
-    /* width: 100%; */
+    width: 98%;
+    margin-left: 1%;
+    margin-right: 0%;
 }
 
 .publications-box .publications-content {
@@ -820,8 +823,10 @@ span {
 }
 
 table {
-    width: 100%;
+    width: 80%;
 }
+
+
 
 table tr::before {
     display: table-cell;
