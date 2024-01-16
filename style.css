@@ -819,9 +819,9 @@ span {
     background: var(--content_box_color);
 }
 
-/* table {
+table {
     width: 100%;
-} */
+}
 
 table tr::before {
     display: table-cell;
