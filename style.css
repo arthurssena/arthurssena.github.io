@@ -743,7 +743,7 @@ span {
 
 .publications-column .publications-box {
     position: relative;
-    /* width: 100%; */
+    width: 100%;
 }
 
 .publications-box .publications-content {
@@ -819,9 +819,9 @@ span {
     background: var(--content_box_color);
 }
 
-table {
+/* table {
     width: 100%;
-}
+} */
 
 table tr::before {
     display: table-cell;
