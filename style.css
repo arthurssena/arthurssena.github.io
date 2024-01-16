@@ -690,7 +690,7 @@ span {
 
 .publications-column .publications-box {
     position: relative;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .publications-box .publications-content {
