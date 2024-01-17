@@ -240,8 +240,8 @@ section {
     padding-left: 5rem;
     padding-right: 5rem;
     position: relative;
-    font-size: 1.7rem;
-    font-weight: 120;
+    font-size: 1.8rem;
+    font-weight: 420;
     /* margin: 0rem 6rem 0rem; */
     color: var(--text-color);
 }
@@ -255,7 +255,7 @@ section {
 .home .interests h2 {
     position: relative;
     /* display: inline-block; */
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin: 5rem 0rem 1.5rem;
     color: var(--title-color);
     text-align: center;
@@ -614,6 +614,7 @@ span {
     display: flex;
     flex-wrap: wrap;
     gap: 5rem;
+    width: 80%;
 }
 
 .education-row .education-column {
@@ -1471,7 +1472,7 @@ section:nth-child(odd) .animate.scroll,
     --header-color: #007aaf;
     --title-color: #0092cc;
     --filter-icon: invert(40%) sepia(85%) saturate(2387%) hue-rotate(170deg) brightness(93%) contrast(101%);
-    --filter-icon-hover: invert(100%) sepia(13%) saturate(6%) hue-rotate(221deg) brightness(113%) contrast(96%);
+    --filter-icon-hover: invert(99%) sepia(36%) saturate(5455%) hue-rotate(166deg) brightness(98%) contrast(94%);
     --filter-external-link: invert(54%) sepia(5%) saturate(1580%) hue-rotate(154deg) brightness(95%) contrast(95%);
     --filter-external-link-hover: invert(27%) sepia(7%) saturate(1035%) hue-rotate(149deg) brightness(91%) contrast(86%);
 }
