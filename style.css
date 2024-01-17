@@ -17,6 +17,8 @@
     --third-bg-color: #091822;
     --text-color: #ededed;
     --link-color: #a8ddff;
+    --pub-button-color: #c8eaff;
+    --pub-button-color2: #42baff;
     --text-color2: #42baff;
     --ext-link-color:#ededed;
     --header-color: #ededed;
@@ -316,18 +318,26 @@ section {
 
 
 .icon_citations_link {
+    background: var(--pub-button-color);
+    border: .2rem solid var(--pub-button-color);
+    border-radius: .4rem;
+    padding: .1rem;
+    z-index: 1;
+    overflow: hidden;
+    filter: drop-shadow(0 0 1px rgba(0,0,0,0.3));
+
     height: 30px;
     width: 30px;
     cursor: pointer;
     margin-left: 1.5rem;
     transition: all .5s ease-out;
-    filter: var(--filter-external-link);
+    /* filter: var(--filter-external-link); */
 }
 
 .icon_citations_link:hover {
     transition: all .5s ease-in;
     animation: tilt-shaking 0.35s infinite;
-    filter: var(--filter-external-link-hover);
+    /* filter: var(--filter-external-link-hover); */
 }
 
 
@@ -847,7 +857,8 @@ table tr::before {
 .hoverTable tr:hover {
     color: var(--text-color2);
     --ext-link-color: var(--text-color2);
-    --filter-external-link: var(--filter-external-link-hover);
+    --pub-button-color: var(--pub-button-color2);
+    /* --filter-external-link: var(--filter-external-link-hover); */
     transition-delay: 2s;
     transition: 1s ease;
 }
@@ -1447,6 +1458,8 @@ section:nth-child(odd) .animate.scroll,
     --text-color2: #3e4a4e;
     /* --text-color: #58b1cf; */
     --text-color: #6d8996;
+    --pub-button-color: #cedde6;
+    --pub-button-color2: #b1e3ff;
     /* --ext-link-color: #58b1cf; */
     --link-color: #607b87;
     --ext-link-color: #6d8996;
