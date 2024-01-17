@@ -744,9 +744,9 @@ span {
 
 .publications-column .publications-box {
     position: relative;
-    width: 98%;
+    /* width: 98%;
     margin-left: 1%;
-    margin-right: 0%;
+    margin-right: 0%; */
 }
 
 .publications-box .publications-content {
