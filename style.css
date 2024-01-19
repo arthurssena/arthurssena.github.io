@@ -316,8 +316,23 @@ section {
     text-align: right;
 }
 
+.icon_pub_link_no_bg{
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    cursor: pointer;
+    margin-left: .5rem;
+    padding-bottom: .5rem;
+    transition: all .5s ease-out;
+}
 
-.icon_citations_link {
+.icon_pub_link_no_bg:hover {
+    transition: all .5s ease-in;
+    animation: tilt-shaking 0.35s infinite;
+    /* filter: var(--filter-external-link-hover); */
+}
+
+.icon_pub_link {
     background: var(--pub-button-color);
     border: .2rem solid var(--pub-button-color);
     border-radius: .4rem;
@@ -334,7 +349,7 @@ section {
     /* filter: var(--filter-external-link); */
 }
 
-.icon_citations_link:hover {
+.icon_pub_link:hover {
     transition: all .5s ease-in;
     animation: tilt-shaking 0.35s infinite;
     /* filter: var(--filter-external-link-hover); */
@@ -733,7 +748,7 @@ span {
 .publications .publications-row {
     display: flex;
     flex-wrap: wrap;
-    gap: .5rem;
+    gap: 1.5rem;
     counter-reset: publicationIndex;
 }
 
@@ -755,7 +770,7 @@ span {
 
 .publications-column .publications-box {
     position: relative;
-    /* width: 98%;
+    /* width: 80%;
     margin-left: 1%;
     margin-right: 0%; */
 }
@@ -767,7 +782,7 @@ span {
     padding: .5rem 1.5rem;
     z-index: 1;
     overflow: hidden;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 120;
     
 }
@@ -833,6 +848,8 @@ span {
     background: var(--content_box_color);
 }
 
+
+
 table {
     width: 80%;
 }
@@ -842,10 +859,8 @@ table {
 table tr::before {
     display: table-cell;
     content:"[" counter(publicationIndex) "]";
-    padding-right: 2em;
+    padding-right: 1em;
     padding-top: 0.8em;
-    text-align: center;
-    align-items: center;
 }
 
 
@@ -863,6 +878,8 @@ table tr::before {
     transition-delay: 2s;
     transition: 1s ease;
 }
+
+
 
 
 .publications-box td:hover::before{
