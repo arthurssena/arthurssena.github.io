@@ -12,7 +12,7 @@
 }
 
 :root {
-    --bg-color: #081b29;
+    --bg-color: #092030;
     --second-bg-color: #112e42;
     --third-bg-color: #091822;
     --text-color: #ededed;
@@ -27,6 +27,7 @@
     --color-circ_2: #1d86d1;
     --color-circ_3: #0d3450;
     --content_box_color: #0d4268;
+    --content_box_bg_color: #07263a;
     --title-color: #ededed;
     --filter-icon: invert(52%) sepia(19%) saturate(6051%) hue-rotate(164deg) brightness(97%) contrast(107%);
     --filter-icon-hover: invert(8%) sepia(12%) saturate(4123%) hue-rotate(168deg) brightness(94%) contrast(97%);
@@ -119,7 +120,7 @@ section {
     align-items: center;
     flex-direction: column;
     padding: 0 9%;
-    background: url('/images/background.png') no-repeat;
+    /* background: url('/images/background.png') no-repeat; */
     background-size: cover;
     background-position: center;
 }
@@ -777,6 +778,7 @@ span {
 
 .publications-box .publications-content {
     position: relative;
+    background-color: var(--content_box_bg_color);
     border: .2rem solid var(--content_box_color);
     border-radius: .6rem;
     padding: .5rem 1.5rem;
@@ -1469,9 +1471,9 @@ section:nth-child(odd) .animate.scroll,
 
 /* Light Mode */
 [data-theme="light"] {
-    --bg-color: #fafafa;
-    --second-bg-color: #c7e9ff;
-    --third-bg-color: #eaf6ff;
+    --bg-color: #f1f7fc;
+    --second-bg-color: #a6cfe9;
+    --third-bg-color: #e7f0f8;
     /* --text-color2: #0083b3; */
     --text-color2: #3e4a4e;
     /* --text-color: #58b1cf; */
@@ -1485,7 +1487,8 @@ section:nth-child(odd) .animate.scroll,
     --color-circ_1: #007aaf;
     --color-circ_2: #6e8791;
     --color-circ_3: #32a8da;
-    --content_box_color: #d3edff;
+    --content_box_color: #d8efff;
+    --content_box_bg_color: #f1f9ff;
     --header-color: #007aaf;
     --title-color: #0092cc;
     --filter-icon: invert(40%) sepia(85%) saturate(2387%) hue-rotate(170deg) brightness(93%) contrast(101%);

@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 28.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
-	<!ENTITY st0 "fill:#DBEFF8;">
-	<!ENTITY st1 "fill:none;stroke:#333333;stroke-width:5;stroke-linecap:round;stroke-miterlimit:10;">
-	<!ENTITY st2 "fill:none;stroke:#333333;stroke-width:6;stroke-linecap:round;stroke-miterlimit:10;">
-	<!ENTITY st3 "fill:#009FE3;">
+	<!ENTITY st0 "fill:#A6B8C6;stroke:#4C5C6B;stroke-width:3;stroke-miterlimit:10;">
+	<!ENTITY st1 "fill:none;stroke:#4C5C6B;stroke-width:4;stroke-miterlimit:10;">
+	<!ENTITY st2 "fill:#009FE3;">
 ]>
 <svg version="1.1" id="Layer_1" xmlns:xodm="http://www.corel.com/coreldraw/odm/2003"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 96.4 96.4"
 	 style="enable-background:new 0 0 96.4 96.4;" xml:space="preserve">
-<path style="&st0;" d="M63.6,81.2h-34c-6.4,0-11.6-5.2-11.6-11.6V29.9c0-6.4,5.2-11.6,11.6-11.6h21.5l24.1,24.1v27.2
-	C75.2,76,70,81.2,63.6,81.2z"/>
-<line style="&st1;" x1="29.5" y1="55.4" x2="33.6" y2="55.4"/>
-<line style="&st1;" x1="29.5" y1="42.6" x2="31.6" y2="42.5"/>
-<line style="&st1;" x1="54.6" y1="55.4" x2="65.5" y2="55.4"/>
-<line style="&st1;" x1="29.5" y1="29.7" x2="44.1" y2="29.7"/>
-<line style="&st1;" x1="29.5" y1="68.3" x2="65.6" y2="68"/>
-<path style="&st2;" d="M63.7,81.2H29.6c-6.4,0-11.5-5.2-11.5-11.5V29.8c0-6.4,5.2-11.5,11.5-11.5h21.6l24,24v27.3
-	C75.2,76,70,81.2,63.7,81.2z"/>
-<path style="&st3;" d="M88.3,8.8l-2.8,20c0,0.9-0.3,1.7-1,2.4s-1.4,1-2.4,1c-0.9,0-1.7-0.3-2.4-1l-4.4-4.4L46,54.5
-	c-0.3,0.3-0.7,0.5-1.2,0.5c-0.5,0-0.9-0.2-1.2-0.5l-6-6c-0.3-0.3-0.5-0.7-0.5-1.2s0.2-0.9,0.5-1.2l29.3-27.8L62.5,14
-	c-0.7-0.7-1-1.4-1-2.4s0.3-1.7,1-2.4c0.7-0.7,1.4-1,2.4-1l20-2.8c0.9,0,1.7,0.3,2.4,1S88.3,7.7,88.3,8.8z"/>
+<path style="&st0;" d="M70.5,82.7H23.4c-2.8,0-5-2.2-5-5V24.8c0-2.8,2.2-5,5-5h28l24.1,24.1v33.8C75.5,80.4,73.3,82.7,70.5,82.7z"/>
+<g>
+	<line style="&st1;" x1="25.1" y1="57" x2="34.1" y2="56.9"/>
+	<line style="&st1;" x1="25.1" y1="44.1" x2="31.7" y2="44"/>
+	<line style="&st1;" x1="53.7" y1="56.9" x2="69" y2="56.8"/>
+	<line style="&st1;" x1="25.1" y1="31.3" x2="42.9" y2="31.2"/>
+	<line style="&st1;" x1="25" y1="69.8" x2="69.1" y2="69.5"/>
+</g>
+<path style="&st2;" d="M88.6,10.3l-2.8,20c0,0.9-0.3,1.7-1,2.4c-0.7,0.7-1.4,1-2.4,1c-0.9,0-1.7-0.3-2.4-1l-4.4-4.4L46.3,56
+	c-0.3,0.3-0.7,0.5-1.2,0.5c-0.5,0-0.9-0.2-1.2-0.5l-6-6c-0.3-0.3-0.5-0.7-0.5-1.2c0-0.5,0.2-0.9,0.5-1.2l29.3-27.8l-4.4-4.4
+	c-0.7-0.7-1-1.4-1-2.4s0.3-1.7,1-2.4c0.7-0.7,1.4-1,2.4-1l20-2.8c0.9,0,1.7,0.3,2.4,1S88.6,9.2,88.6,10.3z"/>
 </svg>
