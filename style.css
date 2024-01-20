@@ -120,7 +120,7 @@ section {
     align-items: center;
     flex-direction: column;
     padding: 0 9%;
-    /* background: url('/images/background.png') no-repeat; */
+    background: url('/images/background.svg') no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -206,6 +206,20 @@ section {
     align-items: center;
 }
 
+.home .interests-row::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--content_box_bg_color);
+    height: 100%;
+    z-index: -1;
+    transition: .5s;
+    counter-increment: publicationIndex;
+    transition: 1s;
+}
+
 .home .home-column {
     column-width: auto;
     display: flex;
@@ -228,6 +242,21 @@ section {
     padding-bottom: 10rem;
 }
 
+.home .interests-row {
+    position: relative;
+    
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    border: .2rem solid var(--content_box_color);
+    border-radius: .6rem;
+    padding: .5rem 1.5rem;
+    z-index: 1;
+    overflow: hidden;
+    font-size: 1.5rem;
+    font-weight: 120;
+    transition: .5s;
+}
 
 .home .interests-column {
     column-width: auto;
@@ -267,34 +296,9 @@ section {
 }
 
 
-.home .interests-row {
-    position: relative;
-    
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
 
-    border: .2rem solid var(--content_box_color);
-    border-radius: .6rem;
-    padding: .5rem 1.5rem;
-    z-index: 1;
-    overflow: hidden;
-    font-size: 1.5rem;
-    font-weight: 120;
-    
-}
 
-.home .interests-row::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    z-index: -1;
-    transition: .5s;
-    counter-increment: publicationIndex;
-}
+
 
 .home .interests-row:hover::before {
     width: 100%;
@@ -691,7 +695,8 @@ span {
     position: absolute;
     top: 0;
     left: 0;
-    width: 0;
+    width: 100%;
+    background: var(--content_box_bg_color);
     height: 100%;
     z-index: -1;
     transition: .5s;
@@ -778,7 +783,6 @@ span {
 
 .publications-box .publications-content {
     position: relative;
-    background-color: var(--content_box_bg_color);
     border: .2rem solid var(--content_box_color);
     border-radius: .6rem;
     padding: .5rem 1.5rem;
@@ -794,7 +798,8 @@ span {
     position: absolute;
     top: 0;
     left: 0;
-    width: 0;
+    width: 100%;
+    background: var(--content_box_bg_color);
     height: 100%;
     z-index: -1;
     transition: .5s;
@@ -839,7 +844,8 @@ span {
     position: absolute;
     top: 0;
     left: 0;
-    width: 0;
+    width: 100%;
+    background: var(--content_box_bg_color);
     height: 100%;
     z-index: -1;
     transition: .5s;
@@ -1166,6 +1172,7 @@ table tr::before {
 .logo .animate,
 .navbar .animate,
 .interests .animate,
+.interests-row .animate,
 #menu-icon .animate,
 .home.show-animate .animate {
     animation: showRight 1s ease forwards;
@@ -1173,6 +1180,11 @@ table tr::before {
 }
 
 .interests.show-animate .animate {
+    animation: showRight 1s ease forwards;
+    animation-delay: calc(.3s * var(--i));
+}
+
+.interests-row.show-animate .animate {
     animation: showRight 1s ease forwards;
     animation-delay: calc(.3s * var(--i));
 }
