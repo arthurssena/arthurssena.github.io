@@ -1259,7 +1259,7 @@ section:nth-child(odd) .animate.scroll,
 @media (max-width: 768px) {
 
     .home {
-        background-position-y: -5dvh;
+        background-position-y: -8dvh;
     }
 
     .header {
