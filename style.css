@@ -1266,6 +1266,10 @@ section:nth-child(odd) .animate.scroll,
         background: var(--bg-color);
     }
 
+    .home-content .text-animate {
+        padding-top: 10dvh;
+    }
+
     #menu-icon {
         display: block;
     }
