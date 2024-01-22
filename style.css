@@ -1257,6 +1257,11 @@ section:nth-child(odd) .animate.scroll,
 }
 
 @media (max-width: 768px) {
+
+    .home {
+        background-position-y: -5dvh;
+    }
+
     .header {
         background: var(--bg-color);
     }
