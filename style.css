@@ -345,24 +345,25 @@ section {
 .icon_pub_link {
     background: var(--pub-button-color);
     border: .2rem solid var(--pub-button-color);
-    border-radius: .4rem;
-    padding: .1rem;
+    border-radius: 15%;
+    padding: .4rem;
     z-index: 1;
-    overflow: hidden;
-    filter: drop-shadow(0 0 1px rgba(0,0,0,0.3));
+    /* overflow: hidden; */
+    filter: drop-shadow(0 0 .6px rgba(0,0,0,0.3));
 
-    height: 30px;
-    width: 30px;
+    height: 39px;
+    width: 39px;
     cursor: pointer;
     margin-left: 1.5rem;
     margin-right: 0rem;
     margin-top: .8rem;
-    transition: all .5s ease-out;
+    transition: all .3s ease-out;
     /* filter: var(--filter-external-link); */
 }
 
 .icon_pub_link:hover {
-    transition: all .5s ease-in;
+    transition: all .3s ease-in;
+    filter: drop-shadow(0 0 3px rgba(0,0,0,0.3));
     animation: tilt-shaking 0.35s infinite;
     /* filter: var(--filter-external-link-hover); */
 }
@@ -877,7 +878,7 @@ table tr::before {
     display: table-cell;
     content:"[" counter(publicationIndex) "]";
     padding-right: 1em;
-    padding-top: 0.5em;
+    padding-top: 0.8em;
 }
 
 .hoverTable{
@@ -1026,8 +1027,13 @@ table tr::before {
 @keyframes item-height { from { height: 0 } }
 
 .citations-content .simple-bar-chart > .item > * { position: absolute; text-align: center }
-.citations-content .simple-bar-chart > .item > .label { inset: 100% 0 auto 0 }
-.citations-content .simple-bar-chart > .item > .value { inset: auto 0 100% 0 }
+.citations-content .simple-bar-chart > .item > .label { inset: 100% 0 auto 0;
+    
+    font-weight: 500; }
+.citations-content .simple-bar-chart > .item > .value { inset: auto 0 100% 0;
+    font-weight: 500;
+    color: var(--text-color3);
+}
 
 
 .contact {
