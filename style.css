@@ -17,9 +17,10 @@
     --third-bg-color: #091822;
     --text-color: #ededed;
     --link-color: #a8ddff;
-    --pub-button-color: #c8eaff;
-    --pub-button-color2: #42baff;
-    --text-color2: #42baff;
+    --pub-button-color: #bcd7e7;
+    --pub-button-color2: #e9f3f9;
+    --text-color2: #ededed;
+    --text-color3: #cad8df;
     --ext-link-color:#ededed;
     --header-color: #ededed;
     --main-color: #00abf0;
@@ -123,7 +124,7 @@ section {
     align-items: center;
     flex-direction: column;
     padding: 0 9%;
-    background: var(--url-header-bg) no-repeat;
+    background: url('/images/background.svg') no-repeat;
     background-size: cover;
     background-position: left;
     background-position-y: .01rem;
@@ -354,6 +355,8 @@ section {
     width: 30px;
     cursor: pointer;
     margin-left: 1.5rem;
+    margin-right: 0rem;
+    margin-top: .8rem;
     transition: all .5s ease-out;
     /* filter: var(--filter-external-link); */
 }
@@ -378,18 +381,18 @@ section {
     position: absolute;
     padding: 10px 10px;
     cursor: pointer;
-    transition: all .5s ease-out;
+    transition: all .3s ease-out;
     /* filter: var(--filter-icon); */
 }
 
 .icon_link:hover {
-    transition: all .5s ease-in;
+    transition: all .3s ease-in;
     animation: tilt-shaking 0.35s infinite;
     /* filter: var(--filter-icon-hover); */
 }
 
 .icon:hover {
-    transition: .5s ease;
+    transition: .3s ease;
     height: 55px;
     width: 55px;
 }
@@ -476,11 +479,11 @@ section {
     color: var(--main-color);
 
     background: var(--button-home-color);
-    /* filter: drop-shadow(0 .9px .8px rgba(0,0,0,0.5)); */
+    filter: drop-shadow(0 .9px .8px rgba(67, 111, 133, 0.5));
     
     z-index: 1;
     overflow: hidden;
-    transition: .5s;
+    transition: .3s;
 }
 
 
@@ -495,17 +498,17 @@ section {
     background: var(--button-home-color-hover);
     z-index: -1;
     
-    transition: all .5s ease-out;
+    transition: all .3s ease-out;
 }
 
 .home-sci a:hover {
     color: var(--button-home-color-hover);
-    filter: drop-shadow(0 .9px 3.5px rgba(0,0,0,0.5));
+    filter: drop-shadow(0 .9px 2.5px rgba(73, 92, 99, 0.5));
 }
 
 .home-sci a:hover::before {
     opacity: 1;
-    transition: all .5s ease-in;
+    transition: all .3s ease-in;
 }
 
 .home-imgHover {
@@ -874,9 +877,12 @@ table tr::before {
     display: table-cell;
     content:"[" counter(publicationIndex) "]";
     padding-right: 1em;
-    padding-top: 0.3em;
+    padding-top: 0.5em;
 }
 
+.hoverTable{
+    color: var(--text-color3);
+}
 
 .hoverTable{
     width:100%; 
@@ -886,10 +892,11 @@ table tr::before {
 /* Define the hover highlight color for the table row */
 .hoverTable tr:hover {
     color: var(--text-color2);
+    font-weight: 300;
     --ext-link-color: var(--text-color2);
     --pub-button-color: var(--pub-button-color2);
     /* --filter-external-link: var(--filter-external-link-hover); */
-    transition-delay: 2s;
+    /* transition-delay: 2s; */
     transition: 1s ease;
 }
 
@@ -1517,8 +1524,9 @@ section:nth-child(odd) .animate.scroll,
     --text-color2: #3e4a4e;
     /* --text-color: #58b1cf; */
     --text-color: #6d8996;
-    --pub-button-color: #e1edf7;
-    --pub-button-color2: #d5eafb;
+    --pub-button-color: #d9e8f4;
+    --pub-button-color2: #ecf6ff;
+    --text-color3: #80a0af;
     /* --ext-link-color: #58b1cf; */
     --link-color: #607b87;
     --ext-link-color: #6d8996;
@@ -1526,7 +1534,7 @@ section:nth-child(odd) .animate.scroll,
     --color-circ_1: #007aaf;
     --color-circ_2: #6e8791;
     --color-circ_3: #32a8da;
-    --content_box_color: #d8efff;
+    --content_box_color: #def0fc;
     --content_box_bg_color: #f1f9ff;
     --header-color: #0092cc;
     --title-color: #6d8996;
