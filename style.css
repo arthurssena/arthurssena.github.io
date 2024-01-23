@@ -12,7 +12,7 @@
 }
 
 :root {
-    --bg-color: #092030;
+    --bg-color: #0b2a3f;
     --second-bg-color: #112e42;
     --third-bg-color: #091822;
     --text-color: #ededed;
@@ -33,6 +33,9 @@
     --filter-icon-hover: invert(8%) sepia(12%) saturate(4123%) hue-rotate(168deg) brightness(94%) contrast(97%);
     --filter-external-link: invert(98%) sepia(2%) saturate(155%) hue-rotate(204deg) brightness(114%) contrast(86%);
     --filter-external-link-hover: invert(62%) sepia(55%) saturate(1636%) hue-rotate(174deg) brightness(101%) contrast(101%);
+    --button-home-color: #2c4252;
+    --button-home-color-hover: #003c66;
+    --url-header-bg: url('/images/background.svg');
 }
 
 html {
@@ -120,7 +123,7 @@ section {
     align-items: center;
     flex-direction: column;
     padding: 0 9%;
-    background: url('/images/background.svg') no-repeat;
+    background: var(--url-header-bg) no-repeat;
     background-size: cover;
     background-position: left;
     background-position-y: .01rem;
@@ -145,12 +148,12 @@ section {
 
 .home-content .text-animate {
     position: relative;
-    width: 25.8rem;
+    width: 29.7rem;
 }
 
 .home-content .text-animate h3 {
     /* change here */
-    font-size: 3.05rem;
+    font-size: 3.5rem;
     font-weight: 700;
     color: transparent;
     -webkit-text-stroke: .7px var(--main-color);
@@ -376,13 +379,13 @@ section {
     padding: 10px 10px;
     cursor: pointer;
     transition: all .5s ease-out;
-    filter: var(--filter-icon);
+    /* filter: var(--filter-icon); */
 }
 
 .icon_link:hover {
     transition: all .5s ease-in;
     animation: tilt-shaking 0.35s infinite;
-    filter: var(--filter-icon-hover);
+    /* filter: var(--filter-icon-hover); */
 }
 
 .icon:hover {
@@ -454,7 +457,7 @@ section {
 
 .home-sci {
     position: relative;
-    bottom: 3rem;
+    bottom: 8rem;
     width: 230px;
     display: flex;
     justify-content: space-between;
@@ -465,21 +468,21 @@ section {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 55px;
-    height: 55px;
-    background: transparent;
-    border: .2rem solid var(--main-color);
-    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    /* border: .1rem solid var(--button-home-color-hover); */
+    border-radius: 25%;
     font-size: 30px;
     color: var(--main-color);
+
+    background: var(--button-home-color);
+    /* filter: drop-shadow(0 .9px .8px rgba(0,0,0,0.5)); */
+    
     z-index: 1;
     overflow: hidden;
     transition: .5s;
 }
 
-.home-sci a:hover {
-    color: var(--bg-color);
-}
 
 .home-sci a::before {
     content: '';
@@ -489,10 +492,15 @@ section {
     width: 100%;
     height: 100%;
     opacity: 0;
-    background: var(--main-color);
+    background: var(--button-home-color-hover);
     z-index: -1;
     
     transition: all .5s ease-out;
+}
+
+.home-sci a:hover {
+    color: var(--button-home-color-hover);
+    filter: drop-shadow(0 .9px 3.5px rgba(0,0,0,0.5));
 }
 
 .home-sci a:hover::before {
@@ -734,18 +742,21 @@ span {
 }
 
 .publications {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     min-height: auto;
     padding-bottom: 7rem;
     background-image: linear-gradient(var(--bg-color), var(--third-bg-color));
 }
 
-.publications h2 {
+/* .publications h2 {
     display: inline-block;
     left: 50%;
     transform: translateX(-50%);
     
 
-}
+} */
 
 .publications a {
     color: var(--link-color);
@@ -753,20 +764,17 @@ span {
 }
 
 .publications .publications-row {
+    /* display: inline; */
     display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    gap: 1.2rem;
     counter-reset: publicationIndex;
+    /* width: 80%; */
 }
 
-.publications-row .publications-column {
-    flex: 1 1 40rem;
-    justify-content: center;
-    align-items: center;
-    padding: auto;
-}
 
-.publications-column .title {
+.publications .title {
     position: relative;
     display: inline-block;
     font-size: 3.5rem;
@@ -775,11 +783,8 @@ span {
 }
 
 
-.publications-column .publications-box {
+.publications-row .publications-box {
     position: relative;
-    /* width: 80%;
-    margin-left: 1%;
-    margin-right: 0%; */
 }
 
 .publications-box .publications-content {
@@ -813,7 +818,7 @@ span {
 }
 
 
-.publications-column .citations {
+.publications-row .citations {
     position: relative;
     display: inline-block;
     font-size: 2.5rem;
@@ -869,7 +874,7 @@ table tr::before {
     display: table-cell;
     content:"[" counter(publicationIndex) "]";
     padding-right: 1em;
-    padding-top: 0.8em;
+    padding-top: 0.3em;
 }
 
 
@@ -1231,6 +1236,13 @@ section:nth-child(odd) .animate.scroll,
     html {
         font-size: 55%;
     }
+
+    .home-content .text-animate {
+        position: relative;
+        width: 29.7rem;
+    }
+
+    
 }
 
 @media (max-width: 991px) {
@@ -1248,6 +1260,11 @@ section:nth-child(odd) .animate.scroll,
 
     .footer {
         padding: 2rem 4%;
+    }
+
+    .home-content .text-animate {
+        position: relative;
+        width: 29.7rem;
     }
 }
 
@@ -1339,7 +1356,7 @@ section:nth-child(odd) .animate.scroll,
 
     .home-content .text-animate {
         position: relative;
-        width: 25.8rem;
+        width: 29.7rem;
     }
 
     .home .interests-row {
@@ -1354,10 +1371,10 @@ section:nth-child(odd) .animate.scroll,
         font-size: 50%;
     }
 
-    .home-content h1 {
+    /* .home-content h1 {
         display: flex;
         flex-direction: column;
-    }
+    } */
 
     .home-sci {
         width: 160px;
@@ -1370,7 +1387,7 @@ section:nth-child(odd) .animate.scroll,
 
     .home-content .text-animate {
         position: relative;
-        width: 25.8rem;
+        width: 29.7rem;
     }
     
 }
@@ -1399,7 +1416,7 @@ section:nth-child(odd) .animate.scroll,
 
     .home-content .text-animate {
         position: relative;
-        width: 25.8rem;
+        width: 29.7rem;
     }
 }
 
@@ -1421,7 +1438,7 @@ section:nth-child(odd) .animate.scroll,
 
     .home-content .text-animate {
         position: relative;
-        width: 25.8rem;
+        width: 29.7rem;
     }
 }
 
@@ -1432,7 +1449,7 @@ section:nth-child(odd) .animate.scroll,
     0%,
     10%,
     100% {
-        background-position: -26rem 0;
+        background-position: -29.7rem 0;
     }
 
     65%,
@@ -1500,8 +1517,8 @@ section:nth-child(odd) .animate.scroll,
     --text-color2: #3e4a4e;
     /* --text-color: #58b1cf; */
     --text-color: #6d8996;
-    --pub-button-color: #cedde6;
-    --pub-button-color2: #b1e3ff;
+    --pub-button-color: #e1edf7;
+    --pub-button-color2: #d5eafb;
     /* --ext-link-color: #58b1cf; */
     --link-color: #607b87;
     --ext-link-color: #6d8996;
@@ -1511,12 +1528,15 @@ section:nth-child(odd) .animate.scroll,
     --color-circ_3: #32a8da;
     --content_box_color: #d8efff;
     --content_box_bg_color: #f1f9ff;
-    --header-color: #007aaf;
-    --title-color: #0092cc;
+    --header-color: #0092cc;
+    --title-color: #6d8996;
     --filter-icon: invert(40%) sepia(85%) saturate(2387%) hue-rotate(170deg) brightness(93%) contrast(101%);
     --filter-icon-hover: invert(99%) sepia(36%) saturate(5455%) hue-rotate(166deg) brightness(98%) contrast(94%);
     --filter-external-link: invert(54%) sepia(5%) saturate(1580%) hue-rotate(154deg) brightness(95%) contrast(95%);
     --filter-external-link-hover: invert(27%) sepia(7%) saturate(1035%) hue-rotate(149deg) brightness(91%) contrast(86%);
+    --button-home-color: #e1edf7;
+    --button-home-color-hover: #d5eafb;
+    --url-header-bg: url('/images/background_light.svg');
 }
 
 
