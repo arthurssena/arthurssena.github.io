@@ -640,8 +640,8 @@ span {
     position: absolute;
     content: '';
     
-    margin-top: 6rem;
-    margin-left: -.75rem;
+    margin-top: 5.5rem;
+    margin-left: -.77rem;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-bottom: 18px solid var(--main-color);
