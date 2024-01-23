@@ -123,6 +123,7 @@ section {
     background: url('/images/background.svg') no-repeat;
     background-size: cover;
     background-position: left;
+    background-position-y: .01rem;
 }
 
 .home-content {
