@@ -788,7 +788,6 @@ span {
 }
 
 .publications-box .publications-content {
-    position: relative;
     border: .2rem solid var(--content_box_color);
     border-radius: .6rem;
     padding: .5rem 1.5rem;
@@ -819,7 +818,6 @@ span {
 
 
 .publications-row .citations {
-    position: relative;
     display: inline-block;
     font-size: 2.5rem;
     margin: 0 0 1.5rem;
@@ -827,18 +825,17 @@ span {
 
 
 .publications-box .citations-content {
-    display: flex;
-    align-items: center;
-    position: relative;
     width: 60%;
     height: 280px;
-    position:absolute;
     left:20%;
 }
 
 .publications-box .loading-box{
+    /* display: flex; */
+    /* align-items: center; */
     position: relative;
-    left: 48%;
+    left: 46%;
+    top: 45%;
 }
 
 
