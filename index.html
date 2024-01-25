@@ -42,6 +42,20 @@
         } 
     </style> 
 
+
+<script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+
+<!-- for splashscreen -->
+<style>
+    #loading { outline: none; border: none; background: transparent }
+</style>
+<script type="module">
+    const loading = document.getElementById('loading');
+    addEventListener('py:ready', () => loading.close());
+    loading.showModal();
+</script>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MJR5ZZF472"></script>
     <script>
@@ -250,6 +264,20 @@
                         </div>
                     </div>
 
+
+
+                    <div class="education-content">
+                        <div class="content">
+                            <div class="year"><i class="bx bxs-calendar"></i> 2014 - 2015</div>
+                            <h3>EXCHANGE PROGRAM IN COMPUTER ENGINEERING</h3>
+                            <p><span>SUPERVISOR:</span> Prof. Bonnie Haferkamp.
+                                </p>
+                                <p><span>UNIVERSITY:</span> Illinois Institute of Technology, USA.
+                                    </p>
+                        </div>
+                    </div>
+
+
                     <div class="education-content">
                         <div class="content">
                             <div class="year"><i class="bx bxs-calendar"></i> 2012 - 2017</div>
@@ -264,16 +292,7 @@
                     </div>
 
 
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year"><i class="bx bxs-calendar"></i> 2014 - 2015</div>
-                            <h3>EXCHANGE PROGRAM IN COMPUTER ENGINEERING</h3>
-                            <p><span>SUPERVISOR:</span> Prof. Bonnie Haferkamp.
-                                </p>
-                                <p><span>UNIVERSITY:</span> Illinois Institute of Technology, USA.
-                                    </p>
-                        </div>
-                    </div>
+                    
 
                     
                 </div>
@@ -337,38 +356,32 @@
 
 
                 <div class="publications-box">
+                
                     <h4>Citations <span style="font-size:70%"> Total = 442</span></h4>
                     <div class="citations-content">
 
-                        <div class="gap-10"></div>
-
-                        <div class="simple-bar-chart">
-                            <div class="item" style="--clr: #7fffd2; --val: calc((28/162)*100)">
-                                <div class="label">2020</div>
-                                <div class="value">28</div>
-                            </div>
-                            
-                            <div class="item" style="--clr: #00ffee; --val: calc((85/162)*100)">
-                                <div class="label">2021</div>
-                                <div class="value">85</div>
-                            </div>
-                            
-                            <div class="item" style="--clr: #00d5ff; --val: calc((162/162)*100)">
-                                <div class="label">2022</div>
-                                <div class="value">162</div>
-                            </div>
-                            
-                            <div class="item" style="--clr: #008cff; --val: calc((160/162)*100)">
-                                <div class="label">2023</div>
-                                <div class="value">160</div>
-                            </div>
-                            
-                            <div class="item" style="--clr: #4d74ff; --val: calc((7/162)*100)">
-                                <div class="label">2024</div>
-                                <div class="value">7</div>
-                            </div>  
+                        <div id="citationsChart"></div>
+                        
+                        <div class="loading-box">
+                            <div class="loading"></div>
+                            <canvas></canvas>
                         </div>
-                        <div class="gap-10"></div>
+
+                        <script>
+                            function plot(graph, chart) {
+                                var figure = JSON.parse(graph)
+                                // var config = {displayModeBar: false}
+                                var config = {displaylogo: false,
+                                    modeBarButtonsToRemove: ['lasso2d', 'zoom2d', 'hoverClosestGl2d', 'autoScale2d', 'toImage', 'toggleSpikelines']
+                                }
+                                figure.config = config;
+                                Plotly.newPlot(chart, figure);
+                            }
+                        </script>
+                        
+
+                        <script type="py" src="./main.py" config="./pyscript.json"></script>
+
                     </div>
                     <h5 class="publications-box">Source: <span style="margin-left:5px"> Google Scholar (20 Jan. 2024)</span></h5>
             </div>
