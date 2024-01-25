@@ -825,17 +825,18 @@ span {
 
 
 .publications-box .citations-content {
-    width: 60%;
+    width: 70%;
     height: 280px;
-    left:20%;
+    left:15%;
 }
 
-.publications-box .loading-box{
-    /* display: flex; */
-    /* align-items: center; */
-    position: relative;
-    left: 46%;
-    top: 45%;
+.loading-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 95%;
+    margin: auto;
 }
 
 
@@ -910,7 +911,7 @@ table tr::before {
     font-size: 1.3rem;
     align-content: center;
     width: 60%;
-    left:21%;
+    left:16%;
     font-weight: normal;
 }
 
@@ -922,7 +923,7 @@ table tr::before {
     padding: .0rem 0 0 0;
     font-size: 2.2rem;
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-around;
 }
 
