@@ -171,6 +171,14 @@ canvas {
     color: var(--header-color);
 }
 
+
+.home-content .text-static h3 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--main-color);
+}
+
+
 .home-content .text-animate {
     position: relative;
     width: 29.7rem;
