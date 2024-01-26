@@ -7,11 +7,13 @@ import pandas as pd
 data = {'Year':['2020', '2021', '2022', '2023', '2024'], 'Citations':[28, 85, 162, 160, 7] }
 df = pd.DataFrame(data)
 
-
-fig = px.bar(df, x='Year', y='Citations', color = 'Citations', color_continuous_scale = [(0,'#7fffd2'), (0.5, '#00d5ff'), (1,'#008cff')], text_auto = True, template="plotly_white", height=280)
+total_citations = np.sum(data['Citations'])
+fig = px.bar(df, x='Year', y='Citations', color = 'Citations', title='<b>Total = {}'.format(total_citations), 
+        color_continuous_scale = [(0,'#7fffd2'), (0.5, '#00d5ff'), (1,'#008cff')],
+        text_auto = True, template="plotly_white", height=290)
 
 fig.update_coloraxes(showscale=False)
-fig.update_layout(margin=dict(l=20, r=20, t=40, b=20), showlegend=False, font_color="#6d8996")
+fig.update_layout(margin=dict(l=20, r=20, t=80, b=20), title_x=0.5, showlegend=False, font_color="#6d8996", title_font_color='#00abf0')
 
 fig.update_yaxes(showgrid=True, gridwidth=.5, gridcolor='#d9e8f4')
 

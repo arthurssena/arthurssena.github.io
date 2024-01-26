@@ -357,7 +357,7 @@
 
                 <div class="publications-box">
                 
-                    <h4>Citations <span style="font-size:70%"> Total = 442</span></h4>
+                    <h4>Citations</h4>
                     <div class="citations-content">
 
                         <div id="citationsChart"></div>
@@ -373,7 +373,8 @@
                                 // var config = {displayModeBar: false}
                                 var config = {displaylogo: false,
                                     responsive: true,
-                                    modeBarButtonsToRemove: ['lasso2d', 'zoom2d', 'hoverClosestGl2d', 'autoScale2d', 'toImage', 'toggleSpikelines']
+                                    // modeBarButtonsToRemove: ['lasso2d', 'zoom2d', 'hoverClosestGl2d', 'autoScale2d', 'toImage', 'toggleSpikelines']
+                                    displayModeBar: false,
                                 }
                                 figure.config = config;
                                 Plotly.newPlot(chart, figure);

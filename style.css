@@ -837,7 +837,7 @@ span {
     width: 90%;
     height: 95%;
     margin: auto;
-    padding-left: 2rem;
+    padding-left: 2.5rem;
 }
 
 
@@ -846,8 +846,8 @@ span {
     position: relative;
     border: .2rem solid var(--content_box_color);
     border-radius: .6rem;
-    padding: .5rem 0rem;
-    padding-right: 2rem;
+    padding: 0.0rem 0rem;
+    padding-right: 2.5rem;
     z-index: 1;
     overflow: hidden;
     font-size: 1.4rem;
@@ -922,11 +922,11 @@ table tr::before {
 }
 
 .publications-box h4 {
-    padding: .0rem 0 0 0;
-    font-size: 2.2rem;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    font-size: 2.4rem;
+    padding-right: 2rem;
 }
 
 .publications-box h4 span {
