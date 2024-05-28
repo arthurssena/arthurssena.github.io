@@ -4,7 +4,7 @@ import plotly.express as px
 import numpy as np
 import pandas as pd
 
-data = {'Year':['2020', '2021', '2022', '2023', '2024'], 'Citations':[28, 85, 162, 163, 15] }
+data = {'Year':['2020', '2021', '2022', '2023', '2024'], 'Citations':[25, 85, 162, 165, 63] }
 df = pd.DataFrame(data)
 
 total_citations = np.sum(data['Citations'])
