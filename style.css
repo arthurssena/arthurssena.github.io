@@ -570,7 +570,7 @@ span {
 .about-img {
     position: relative;
     width: 30rem;
-    height: 30rem;
+    height: 8rem;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -615,7 +615,7 @@ span {
     left: 50%;
     transform: translate(-50%, -50%) rotate(0);
     width: 90%;
-    height: 90%;
+    height: 20%;
     border-radius: 50%;
     border-top: .9rem solid var(--color-circ_3);
     border-bottom: .6rem solid var(--color-circ_3);
