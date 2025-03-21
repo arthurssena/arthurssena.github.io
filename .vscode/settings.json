@@ -3,6 +3,39 @@
         "xmlhttp"
     ],
     "workbench.colorCustomizations": {
+        "[Light Color Theme]": {
+            "sideBar.background": "#f4f7fa",
+            "sideBar.foreground": "#4a4a4a",
+            "tab.activeBackground": "#8ea8b9",
+            "tab.activeBorder": "#539af8",
+            "editor.background": "#eff5fa",
+            "titleBar.activeBackground": "#344a5f",
+            "titleBar.inactiveBackground": "#626a72",
+            "titleBar.activeForeground": "#d7d7d7",
+            "statusBar.foreground": "#ffffff",
+            "editorLineNumber.foreground": "#9e9e9e",
+            "editorLineNumber.activeForeground": "#3f92f0",
+            "editor.lineHighlightBackground": "#e0efff",
+            "terminal.background": "#181818",
+            "activityBar.background": "#212e3a",
+            "sideBarTitle.foreground": "#343434",
+            "activityBar.activeBackground": "#1e1e1fd5",
+            "sideBarSectionHeader.background": "#c1c1c1",
+            "terminal.selectionBackground": "#7bff006d",
+            "editorOverviewRuler.border": "#0063cd",
+            "scrollbar.shadow": "#bcd1e8",
+            "scrollbarSlider.activeBackground": "#002955a2",
+            "scrollbarSlider.background": "#5a84b180",
+            "scrollbarSlider.hoverBackground": "#384a6cb9",
+            "panelSectionHeader.background": "#3c3c3c",
+            "panelSectionHeader.foreground": "#919191",
+            "terminalCursor.background": "#000000",
+            "terminalCursor.foreground": "#23b100",
+            "terminal.border": "#8bff6e",
+            "terminal.tab.activeBorder": "#00ffe5",
+            "tab.hoverBackground": "#d9e0e3",
+            "panelTitle.activeBorder": "#14c690"
+        },
         "activityBar.activeBackground": "#066999",
         "activityBar.background": "#066999",
         "activityBar.foreground": "#e7e7e7",
@@ -19,7 +52,9 @@
         "titleBar.activeBackground": "#044768",
         "titleBar.activeForeground": "#e7e7e7",
         "titleBar.inactiveBackground": "#04476899",
-        "titleBar.inactiveForeground": "#e7e7e799"
+        "titleBar.inactiveForeground": "#e7e7e799",
+        "minimap.background": "#00000000",
+        "scrollbar.shadow": "#00000000"
     },
     "peacock.color": "#044768"
 }
