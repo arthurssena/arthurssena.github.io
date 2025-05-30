@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile Menu Toggle
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-    if (mobileMenuButton && mobileMenu) { // Ensure elements exist
+    if (mobileMenuButton && mobileMenu) {
         const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
         mobileMenuButton.addEventListener('click', () => {
             const isCurrentlyHidden = mobileMenu.classList.contains('hidden');
@@ -17,24 +17,23 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileMenuButton.setAttribute('aria-expanded', String(!isCurrentlyHidden));
             mobileMenu.setAttribute('aria-hidden', String(isCurrentlyHidden));
         });
-
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenuButton.setAttribute('aria-expanded', 'false');
-                mobileMenu.setAttribute('aria-hidden', 'true');
+        if (mobileNavLinks) {
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    mobileMenu.setAttribute('aria-hidden', 'true');
+                });
             });
-        });
+        }
     }
 
-
-    // Smooth scroll for all anchor links
+    // Smooth scroll, Current Year, ScrollToTop, Header animation (keep these as they are)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const isFileLink = this.getAttribute('href') !== '#' && !this.getAttribute('href').startsWith('#');
             if (isFileLink) { return; }
             if (this.getAttribute('href').startsWith('#')) { e.preventDefault(); }
-
             const targetId = this.getAttribute('href');
             if (targetId && targetId.startsWith('#') && targetId.length > 1) {
                 const targetElement = document.querySelector(targetId);
@@ -47,10 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
     const currentYearEl = document.getElementById('currentYear');
     if (currentYearEl) currentYearEl.textContent = new Date().getFullYear();
-
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
     if (scrollToTopBtn) {
         window.addEventListener('scroll', () => {
@@ -62,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         scrollToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     }
-
     const header = document.querySelector('header');
     if (header) {
         window.addEventListener('scroll', () => {
@@ -75,31 +71,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-    // --- Enhanced Fade-In Logic ---
     const generalFadeInSections = document.querySelectorAll('.fade-in-section:not(#publications)');
     if (generalFadeInSections.length > 0) {
         const genericObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } });
         }, { threshold: 0.1 });
         generalFadeInSections.forEach(section => genericObserver.observe(section));
     }
-
     const publicationsSection = document.getElementById('publications');
     const publicationsTitleArea = document.getElementById('publications-title-area');
     if (publicationsSection && publicationsTitleArea && publicationsSection.classList.contains('fade-in-section')) {
         const publicationsObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    publicationsSection.classList.add('is-visible');
-                    observer.unobserve(publicationsTitleArea);
-                }
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) { publicationsSection.classList.add('is-visible'); observer.unobserve(publicationsTitleArea); } });
         }, { threshold: 0.1 });
         publicationsObserver.observe(publicationsTitleArea);
     }
@@ -107,62 +90,99 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Publication Loading and Tabs Logic ---
     const tabButtons = document.querySelectorAll('#publication-tabs .tab-button');
     const publicationCategories = [
-        { id: 'journal-papers-content', file: 'journals.html', count: 0, name: 'Journal Papers' },
-        { id: 'magazine-papers-content', file: 'magazines.html', count: 0, name: 'Magazine Papers' },
-        { id: 'conference-papers-content', file: 'conferences.html', count: 0, name: 'Conference Papers' },
-        { id: 'bookchapter-papers-content', file: 'bookchapters.html', count: 0, name: 'Book Chapters' }
+        { id: 'journal-papers-content', file: 'journals.html', count: 0, name: 'Journal Papers', h3Element: null, loaded: false, items: [] },
+        { id: 'magazine-papers-content', file: 'magazines.html', count: 0, name: 'Magazine Papers', h3Element: null, loaded: false, items: [] },
+        { id: 'conference-papers-content', file: 'conferences.html', count: 0, name: 'Conference Papers', h3Element: null, loaded: false, items: [] },
+        { id: 'bookchapter-papers-content', file: 'bookchapters.html', count: 0, name: 'Book Chapters', h3Element: null, loaded: false, items: [] }
     ];
+    const allPublicationsSortedContainer = document.getElementById('all-publications-sorted-content');
+    const allPublicationsSortedOl = allPublicationsSortedContainer?.querySelector('ol.publication-list');
+    let allPublicationListItems = []; // To store all <li> elements for sorting
+    let allItemsCollectedAndSorted = false;
 
     async function loadPublicationContent(category) {
         const contentDiv = document.getElementById(category.id);
-        if (contentDiv && !category.loaded) { // Check if already loaded
-            try {
-                const response = await fetch(category.file);
-                if (!response.ok) {
-                    console.error(`Failed to load ${category.file}: ${response.statusText}`);
-                    contentDiv.innerHTML = `<p class="text-center text-red-500">Error loading ${category.name}.</p>`;
-                    category.count = 0; // Set count to 0 on error
-                    category.loaded = true; // Mark as "loaded" to prevent retries
-                    return;
-                }
-                const html = await response.text();
-                // Find the h3 and append the fetched OL after it, or just set innerHTML if h3 is static
-                const h3 = contentDiv.querySelector('h3');
-                if (h3) {
-                    const tempDiv = document.createElement('div');
-                    tempDiv.innerHTML = html; // This should be the <ol>...</ol>
-                    const olElement = tempDiv.querySelector('ol.publication-list');
-                    if (olElement) {
-                         h3.parentNode.insertBefore(olElement, h3.nextSibling);
-                         category.count = olElement.querySelectorAll('li').length;
-                    } else {
-                        console.warn(`No <ol class="publication-list"> found in ${category.file}`);
-                        category.count = 0;
+        if (contentDiv) {
+            category.h3Element = contentDiv.querySelector('h3');
+            if (!category.loaded) {
+                try {
+                    const response = await fetch(category.file);
+                    if (!response.ok) {
+                        console.error(`Failed to load ${category.file}: ${response.statusText}`);
+                        if (category.h3Element) {
+                           const errorMsgElement = document.createElement('p');
+                           errorMsgElement.className = 'text-center text-red-500 py-4';
+                           errorMsgElement.textContent = `Error loading ${category.name}. File not found or server error.`;
+                           category.h3Element.parentNode.insertBefore(errorMsgElement, category.h3Element.nextSibling);
+                        }
+                        category.count = 0; category.items = []; category.loaded = true; return;
                     }
-                } else { // Fallback if h3 isn't there, just inject
-                    contentDiv.innerHTML += html;
-                    const olElement = contentDiv.querySelector('ol.publication-list');
-                    category.count = olElement ? olElement.querySelectorAll('li').length : 0;
-                }
-                category.loaded = true;
-            } catch (error) {
-                console.error(`Error fetching ${category.file}:`, error);
-                contentDiv.innerHTML = `<p class="text-center text-red-500">Error loading ${category.name}.</p>`;
-                category.count = 0;
-                category.loaded = true;
+                    const html = await response.text();
+                    if (category.h3Element) {
+                        const tempDiv = document.createElement('div'); tempDiv.innerHTML = html;
+                        const olElement = tempDiv.querySelector('ol.publication-list');
+                        if (olElement) {
+                             category.h3Element.parentNode.insertBefore(olElement, category.h3Element.nextSibling);
+                             const listItems = olElement.querySelectorAll('li');
+                             category.count = listItems.length;
+                             category.items = Array.from(listItems); // Store actual li elements
+                        } else {
+                            console.warn(`No <ol class="publication-list"> found in ${category.file}`);
+                            const infoMsgElement = document.createElement('p');
+                            infoMsgElement.className = 'text-center text-slate-500 py-4';
+                            infoMsgElement.textContent = `No publications currently listed for ${category.name}.`;
+                            category.h3Element.parentNode.insertBefore(infoMsgElement, category.h3Element.nextSibling);
+                            category.count = 0; category.items = [];
+                        }
+                    } else { /* ... error handling for missing H3 ... */ category.count = 0; category.items = [];}
+                    category.loaded = true;
+                } catch (error) { /* ... error handling ... */ category.count = 0; category.items = []; category.loaded = true; }
+            } else { // Already loaded
+                const olElement = contentDiv.querySelector('ol.publication-list');
+                category.items = olElement ? Array.from(olElement.querySelectorAll('li')) : [];
+                category.count = category.items.length;
             }
-        } else if (contentDiv && category.loaded) {
-            // Content already loaded, ensure count is correct if it was somehow missed.
-            // This might be redundant if initial load is robust.
-            const olElement = contentDiv.querySelector('ol.publication-list');
-            category.count = olElement ? olElement.querySelectorAll('li').length : 0;
-        }
+        } else { /* ... error handling for missing contentDiv ... */ category.count = 0; category.items = []; category.loaded = true; }
+    }
+
+    function collectAndSortAllItems() {
+        if (allItemsCollectedAndSorted) return;
+        allPublicationListItems = [];
+        publicationCategories.forEach(category => {
+            allPublicationListItems.push(...category.items);
+        });
+
+        allPublicationListItems.sort((a, b) => {
+            const yearA = parseInt(a.dataset.year, 10) || 0;
+            const yearB = parseInt(b.dataset.year, 10) || 0;
+            if (yearB !== yearA) {
+                return yearB - yearA; // Sort by year descending
+            }
+            // Optional: Add secondary sort criteria if years are the same
+            // For example, by title (if you add data-title to your LIs)
+            // const titleA = a.querySelector('h4')?.textContent.toLowerCase() || '';
+            // const titleB = b.querySelector('h4')?.textContent.toLowerCase() || '';
+            // return titleA.localeCompare(titleB);
+            return 0; // Keep original relative order for same year if no secondary sort
+        });
+        allItemsCollectedAndSorted = true;
+    }
+
+    function displayAllSortedPublications() {
+        if (!allPublicationsSortedOl) return;
+        collectAndSortAllItems(); // Ensure items are collected and sorted
+
+        allPublicationsSortedOl.innerHTML = ''; // Clear previous items
+        allPublicationListItems.forEach(item => {
+            allPublicationsSortedOl.appendChild(item.cloneNode(true)); // CLONE items
+        });
     }
 
     async function initializePublications() {
         const loadPromises = publicationCategories.map(cat => loadPublicationContent(cat));
         await Promise.all(loadPromises);
 
+        // Counts for chart are now derived from category.count after loading
         const journalCount = publicationCategories.find(c => c.id === 'journal-papers-content')?.count || 0;
         const magazineCount = publicationCategories.find(c => c.id === 'magazine-papers-content')?.count || 0;
         const conferenceCount = publicationCategories.find(c => c.id === 'conference-papers-content')?.count || 0;
@@ -176,46 +196,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const ctx = document.getElementById('publicationChart')?.getContext('2d');
         if (ctx) {
-            const maxCount = Math.max(journalCount, conferenceCount, magazineCount, bookchapterCount, 1);
-            let yAxisMax = Math.ceil((maxCount + (maxCount > 10 ? 5 : 2)) / (maxCount > 10 ? 5 : 1)) * (maxCount > 10 ? 5 : 1);
-            if (maxCount <= 5 && maxCount > 0) yAxisMax = maxCount + (maxCount < 5 ? 1 : 0) ; if (maxCount ===1) yAxisMax = 2;
-            if (maxCount === 0) yAxisMax = 5;
+            // ... (Chart.js initialization logic - should be the same as before, using these counts)
+            const allCounts = [journalCount, conferenceCount, magazineCount, bookchapterCount];
+            const maxCount = Math.max(...allCounts, 1);
+            let yAxisMax = maxCount + 2; // Default to max + 2 for y-axis
+            if (maxCount > 0 && maxCount <= 5) { yAxisMax = maxCount +1; if (maxCount === 1) yAxisMax = 2; }
+            else if (maxCount === 0) { yAxisMax = 5; }
 
-            new Chart(ctx, {
+            new Chart(ctx, { /* ... chart config ... */
                 type: 'bar',
                 data: {
                     labels: ['Journal Papers', 'Conference Papers', 'Magazine Papers', 'Book Chapters'],
                     datasets: [{
-                        label: 'Number of Publications',
-                        data: [journalCount, conferenceCount, magazineCount, bookchapterCount],
-                        backgroundColor: [
-                            'rgba(59, 130, 246, 0.7)', 'rgba(99, 102, 241, 0.7)',
-                            'rgba(14, 165, 233, 0.7)', 'rgba(156, 163, 175, 0.7)'
-                        ],
-                        borderColor: [
-                            'rgba(59, 130, 246, 1)', 'rgba(99, 102, 241, 1)',
-                            'rgba(14, 165, 233, 1)', 'rgba(156, 163, 175, 1)'
-                        ],
+                        label: 'Total', data: allCounts,
+                        backgroundColor: ['rgba(59, 130, 246, 0.7)','rgba(99, 102, 241, 0.7)','rgba(14, 165, 233, 0.7)','rgba(156, 163, 175, 0.7)'],
+                        borderColor: ['rgba(59, 130, 246, 1)','rgba(99, 102, 241, 1)','rgba(14, 165, 233, 1)','rgba(156, 163, 175, 1)'],
                         borderWidth: 1, borderRadius: 6,
                     }]
                 },
                 options: {
                     responsive: true, maintainAspectRatio: false,
                     scales: {
-                        y: {
-                            beginAtZero: true, max: yAxisMax,
-                            ticks: { stepSize: (maxCount < 10 && maxCount > 0 && yAxisMax <= maxCount +1) ? 1 : Math.ceil(yAxisMax / 5), color: '#4b5563' },
-                            grid: { color: '#e5e7eb' }
-                        },
+                        y: { beginAtZero: true, max: yAxisMax, ticks: { stepSize: (maxCount < 10 && maxCount > 0 && yAxisMax <= maxCount +1 && yAxisMax > 1) ? 1 : Math.max(1, Math.ceil(yAxisMax / 5)), color: '#4b5563' }, grid: { color: '#e5e7eb' } },
                         x: { ticks: { color: '#4b5563' }, grid: { display: false } }
                     },
-                    plugins: {
-                        legend: { display: false },
-                        title: {
-                            display: true, text: 'Publications Overview', padding: { top: 10, bottom: 20 },
-                            font: { size: 16, weight: '600', family: 'Inter, sans-serif' }, color: '#1f2937'
-                        }
-                    }
+                    plugins: { legend: { display: false }, title: { display: false } }
                 }
             });
         }
@@ -223,20 +228,39 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function filterPublications(filter) {
+        // Deactivate all individual category titles and hide all content sections
+        publicationCategories.forEach(category => {
+            if (category.h3Element) {
+                category.h3Element.classList.remove('active-category-title');
+            }
+            const contentDiv = document.getElementById(category.id);
+            if (contentDiv) contentDiv.classList.add('hidden');
+        });
+        if (allPublicationsSortedContainer) allPublicationsSortedContainer.classList.add('hidden');
+
+        // Activate the correct tab button
         tabButtons.forEach(button => {
             button.classList.toggle('active', button.dataset.filter === filter);
         });
 
-        publicationCategories.forEach(category => {
-            const contentDiv = document.getElementById(category.id);
-            if (contentDiv) {
-                if (filter === 'all' || category.id.startsWith(filter)) {
-                    contentDiv.classList.remove('hidden');
-                } else {
-                    contentDiv.classList.add('hidden');
+        if (filter === 'all') {
+            if (allPublicationsSortedContainer) {
+                displayAllSortedPublications(); // Populate and sort
+                allPublicationsSortedContainer.classList.remove('hidden');
+                // Ensure the "All Publications (Sorted by Year)" h3 does not get active styling meant for individual cats
+                const allPubsH3 = allPublicationsSortedContainer.querySelector('h3');
+                if (allPubsH3) allPubsH3.classList.remove('active-category-title');
+            }
+        } else {
+            const activeCategory = publicationCategories.find(cat => cat.id.startsWith(filter));
+            if (activeCategory) {
+                const contentDiv = document.getElementById(activeCategory.id);
+                if (contentDiv) contentDiv.classList.remove('hidden');
+                if (activeCategory.h3Element) {
+                    activeCategory.h3Element.classList.add('active-category-title');
                 }
             }
-        });
+        }
     }
 
     function setupTabs() {
@@ -246,20 +270,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     filterPublications(button.dataset.filter);
                 });
             });
-
             const defaultFilterValue = 'all';
-            const defaultActiveTab = document.querySelector(`#publication-tabs .tab-button[data-filter="${defaultFilterValue}"]`);
-            
-            if (defaultActiveTab) {
-                filterPublications(defaultFilterValue); // Apply filter first
-                defaultActiveTab.classList.add('active'); // Then set active class
-            } else if (tabButtons.length > 0) {
-                tabButtons[0].classList.add('active');
-                filterPublications(tabButtons[0].dataset.filter);
-            }
+            filterPublications(defaultFilterValue); // Apply initial filter
         }
     }
 
     initializePublications();
-
 }); // End DOMContentLoaded

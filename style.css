@@ -255,3 +255,13 @@ body {
     border-radius: 0.75rem; /* rounded-xl */
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
 }
+
+.publication-category-content h3 {
+    transition: color 0.3s ease-in-out, font-weight 0.3s ease-in-out; /* Smooth transition */
+}
+
+.active-category-title {
+    /* font-weight: 700 !important; Tailwind's font-bold is 600, font-extrabold is 800. 700 is semibold. Use 600 for 'semibold' if that's already your default. */
+    /* color: #0ea5e9 !important;    Tailwind's sky-500, or choose another prominent color */
+    /* You could also add a small icon here if desired using ::before or ::after */
+}
