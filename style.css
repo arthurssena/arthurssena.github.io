@@ -261,7 +261,6 @@ body {
 }
 
 .active-category-title {
-    /* font-weight: 700 !important; Tailwind's font-bold is 600, font-extrabold is 800. 700 is semibold. Use 600 for 'semibold' if that's already your default. */
-    /* color: #0ea5e9 !important;    Tailwind's sky-500, or choose another prominent color */
+    color: #111827 !important;    /* Tailwind's sky-500, or choose another prominent color */
     /* You could also add a small icon here if desired using ::before or ::after */
 }
