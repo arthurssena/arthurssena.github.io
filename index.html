@@ -1,842 +1,278 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arthur's Personal Page</title>
-
+    <title>Dr. Sena's Personal Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-
-    <!-- box icons -->
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-
-    <style>
-        .gap-10 { 
-            width:0%; 
-            height:10px; 
-        } 
-        .gap-20 { 
-            width:0%; 
-            height:20px; 
-        } 
-        .gap-30 { 
-            width:0%; 
-            height:30px; 
-        }
-
-        .gap-60 { 
-            width:0%; 
-            height:60px; 
-        }
-
-        .gap-120 { 
-            width:0%; 
-            height:120px; 
-        }
-
-        .gap-8 { 
-            width:8%; 
-            height:0px; 
-        } 
-    </style> 
-
-
-<script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
-<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
-
-<!-- for splashscreen -->
-<style>
-    #loading { outline: none; border: none; background: transparent }
-</style>
-<script type="module">
-    const loading = document.getElementById('loading');
-    addEventListener('py:ready', () => loading.close());
-    loading.showModal();
-</script>
-
-    <!-- Google tag (gtag.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MJR5ZZF472"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag("js", new Date());
+    </head>
 
-        gtag("config", "G-MJR5ZZF472");
-    </script>
-</head>
+<body class="bg-slate-100 text-slate-800 selection:bg-sky-500 selection:text-white">
 
-<body>
-
-    <!-- header design -->
-    <header class="header">
-        <a href="#" class="logo">Hi, there!<span></span></a>
-
-
-        <nav class="navbar">
-            <div class="navbar-row">
-                <a href="#home" class="active">Home</a>
-                <!-- <a href="#journey">Journey</a> -->
-                <a href="#publications">Publications</a>
-                <span class="active-nav"></span>
-                <!-- <span class="animate" style="--i:2;"></span> -->
-
-                <div class="switch">
-                    <label class="theme-switch" for="checkbox">
-                        <input type="checkbox" id="checkbox">
-                        <i class="bx bxs-moon themeIconLight"></i>
-                        <i class="bx bxs-sun themeIconDark"></i>
-                        <span class="toggle"></span>
-                    </label>
+    <header class="bg-white/80 backdrop-blur-lg shadow-lg sticky top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="#home" class="text-xl font-bold text-sky-600 hover:text-sky-700 transition-colors">
+                    Dr. Sena's Personal Page
+                </a>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#home"
+                        class="text-slate-700 hover:text-sky-600 font-medium transition-colors text-sm">Home</a>
+                    <a href="#about"
+                        class="text-slate-700 hover:text-sky-600 font-medium transition-colors text-sm">About</a>
+                    <a href="#publications"
+                        class="text-slate-700 hover:text-sky-600 font-medium transition-colors text-sm">Publications</a>
+                    <a href="#contact"
+                        class="text-slate-700 hover:text-sky-600 font-medium transition-colors text-sm">Contact</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" aria-expanded="false" aria-controls="mobile-menu"
+                        class="text-slate-700 hover:text-sky-600 focus:outline-none">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
                 </div>
             </div>
-        </nav>
-
-        
-
-        <div class="bx bx-menu" id="menu-icon"><span class="animate" style="--i:2;"></span></div>
-        
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-xl" aria-hidden="true">
+            <nav class="px-4 pt-2 pb-4 space-y-2">
+                <a href="#home"
+                    class="block text-slate-700 hover:text-sky-600 hover:bg-sky-50 rounded-md py-2 px-3 font-medium transition-colors text-xs mobile-nav-link">Home</a>
+                <a href="#about"
+                    class="block text-slate-700 hover:text-sky-600 hover:bg-sky-50 rounded-md py-2 px-3 font-medium transition-colors text-xs mobile-nav-link">About</a>
+                <a href="#publications"
+                    class="block text-slate-700 hover:text-sky-600 hover:bg-sky-50 rounded-md py-2 px-3 font-medium transition-colors text-xs mobile-nav-link">Publications</a>
+                <a href="#contact"
+                    class="block text-slate-700 hover:text-sky-600 hover:bg-sky-50 rounded-md py-2 px-3 font-medium transition-colors text-xs mobile-nav-link">Contact</a>
+            </nav>
+        </div>
     </header>
 
-    <!-- home section design -->
-    <section class="home show-animate" id="home">
-                    
-        <div class="home-row">
-            <div class="home-column">
-                
-                <div class="home-content">
-                    <div class="gap-120"></div>
-                    <h1><span>Arthur S. de Sena</span><span></span></h1> 
-                    
-                    <div class="gap-120"></div>
-                    
-                    <div class="text-static">
-                        <h3>Short biography</h3>
-                    </div>
-                    
-                    <p style="text-align: justify">Arthur Sousa de Sena is currently a 
-                        postdoctoral researcher in the <a href="https://www.6gflagship.com/" target="_blank">6G Flagship program</a> 
-                        at the University of Oulu, Finland. In this role, he has been
-                        actively carrying out research and supervising students on cutting-edge subjects for future communication systems,
-                        encompassing reconfigurable intelligent surfaces (RISs), next-generation multiple access schemes,
-                        massive and holographic MIMO technologies,
-                        and their intersection with machine learning techniques. 
-                        Additionally, he collaborates on impactful projects, including the European Union <a href="https://hexa-x-ii.eu/" target="_blank">Hexa-X-II</a> 
-                        project and joint research initiatives with the <a href="https://cyberinitiative.org/" target="_blank">Commonwealth Cyber Initiative</a> at Virginia Tech, USA.
-                        Dr. Sena also serves as Work Package Leader and Project Manager for the Business Finland projects Local 6G and <a href="https://www.6gflagship.com/6g-wisecom/" target="_blank">6G-WISECOM</a>. 
-                        <br><br>
-                        
-                        Before his current role, from November 2022 to May 2023, he was a 
-                        researcher at the AI and Digital Science Research 
-                        Center at the <a href="https://www.tii.ae/" target="_blank">Technology Innovation Institute</a>, 
-                        Abu Dhabi, UAE. From 2019 to 2022, 
-                        he was a junior researcher with the Laboratory of 
-                        Control Engineering and Digital Systems at <a href="https://www.lut.fi/en" target="_blank">
-                        Lappeenranta-Lahti University of Technology</a> (LUT), 
-                        Lappeenranta, Finland. He received his D.Sc. degree 
-                        (with distinction) in Electrical Engineering from LUT, 
-                        Finland, in 2022, and the M.Sc. and B.Sc. degrees in 
-                        Teleinformatics Engineering and Computer Engineering 
-                        from the <a href="https://www.ufc.br/" target="_blank">Federal University of Ceará</a>, Brazil, in 2019 
-                        and 2017, respectively. Dr. Sena was awarded the Brazil 
-                        Scientific Mobility Program scholarship for the period 
-                        August 2014 to December 2015, in which he studied 
-                        Computer Engineering as an exchange student at the 
-                        Armour College of Engineering, <a href="https://www.iit.edu/" target="_blank">Illinois Institute 
-                        of Technology</a>, Chicago, USA. Due to his outstanding 
-                        research work in wireless communication, he received 
-                        the Nokia Foundation Award in October 2020, the LUT 
-                        Research Foundation Award in December 2020, and the 
-                        <a href="/documents/GC_2022_Best_Paper_Certificate.pdf" target="_blank">
-                        IEEE Global Communications Conference (GLOBECOM) 
-                        Best Paper Award in December 2022</a>. He has authored 
-                        several peer-reviewed papers in prestigious journals 
-                        and flagship conferences. He serves as an Editor for IEEE Communications Letters
-                        and is a member of the IEEE Communications Society.
-                    </p>
-
-                    
+    <section id="home"
+        class="min-h-[90vh] flex items-center justify-center hero-gradient text-white p-6 sm:p-8 relative overflow-hidden">
+        <div
+            class="container mx-auto z-10 flex flex-col md:flex-row items-center justify-center md:justify-between gap-8 md:gap-12 max-w-6xl">
+            <div class="text-center md:text-left space-y-6 md:space-y-8 flex-1">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-shadow-lg">
+                    Dr. Arthur S. de Sena
+                </h1>
+                <p class="text-lg sm:text-xl md:text-2xl font-medium text-sky-100 text-shadow">
+                    Welcome to my research hub. Stay tuned to my latest works and collaborations.
+                </p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-3 mt-8 md:mt-10">
+                    <a href="https://scholar.google.com/citations?hl=en&user=HymYeUMAAAAJ&view_op=list_works"
+                        target="_blank" rel="noopener noreferrer" title="Google Scholar"
+                        class="icon-link bg-white/25 hover:bg-white/40 text-white font-semibold py-2.5 px-5 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg flex items-center space-x-2 text-sm">
+                        <i class="fas fa-graduation-cap"></i> <span class="hidden sm:inline">Google Scholar</span>
+                    </a>
+                    <a href="https://www.researchgate.net/profile/Arthur-S-De-Sena" target="_blank"
+                        rel="noopener noreferrer" title="ResearchGate"
+                        class="icon-link bg-white/25 hover:bg-white/40 text-white font-semibold py-2.5 px-5 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg flex items-center space-x-2 text-sm">
+                        <i class="fab fa-researchgate"></i> <span class="hidden sm:inline">ResearchGate</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/arthurssena/" target="_blank" rel="noopener noreferrer"
+                        title="LinkedIn"
+                        class="icon-link bg-white/25 hover:bg-white/40 text-white font-semibold py-2.5 px-5 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg flex items-center space-x-2 text-sm">
+                        <i class="fab fa-linkedin"></i> <span class="hidden sm:inline">LinkedIn</span>
+                    </a>
                 </div>
-        
-
-                
             </div>
-        
-            <div class="home-column">
-                <div class="gap-10"></div>
-                <div class="home-row">
-                    <div class="about-img">
-                        <img src="images/about.jpg" alt="">
-                    </div>
-                </div>
-
-                <div class="home-content">
-                <div class="home-row">
-                    <p style="text-align: center"> Postdoctoral Researcher, <a href="https://www.6gflagship.com/" target="_blank">6G Flagship</a> <br>
-                        Editor of <a href="https://www.comsoc.org/publications/journals/ieee-comml/ieee-communications-letters-submit-manuscript" target="_blank">IEEE Communications Letters</a> 
-                        <br>
-                        Email: <a href= "mailto:arthurssena@ieee.org"> arthurssena@ieee.org </a>
-                    </p>
-                </div>
-                
-                <div class="gap-60"></div>
-                <div class="home-row">
-                    <div class="home-sci">
-                        <a href="https://scholar.google.com/citations?hl=en&user=HymYeUMAAAAJ&view_op=list_works" target="_blank"><img src="images/gs_logo.svg" title="Google Scholar" class="icon_link icon"></a>
-                        <a href="https://www.researchgate.net/profile/Arthur-S-De-Sena" target="_blank"><img src="images/rg_logo.svg" title="Research Gate" class="icon_link icon"></a>
-                        <a href="https://www.linkedin.com/in/arthurssena/" target="_blank"><img src="images/lkin_logo.svg" title="Linkedin" class="icon_link icon"></a>
-                    </div>
-                </div>
-                </div>
-
+            <div class="profile-image-container flex-shrink-0 order-first md:order-last">
+                <img src="images/about.jpg" alt="Arthur S. de Sena profile photo"
+                    class="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full object-cover border-4 border-sky-300/70 shadow-2xl transform hover:scale-105 transition-transform duration-300"
+                    onerror="this.onerror=null; this.src='https://placehold.co/240x240/e2e8f0/64748b?text=Image+Not+Found';">
             </div>
-            
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" aria-label="Scroll to about section">
+                <svg class="w-8 h-8 text-sky-200 hover:text-white transition-colors" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-white fade-in-section">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-slate-800 mb-4">About Me</h2>
+                <div class="w-20 h-1 bg-sky-500 mx-auto rounded-full"></div>
+            </div>
+            <div class="max-w-4xl mx-auto bg-slate-50 p-8 sm:p-10 rounded-xl shadow-xl ring-1 ring-slate-200/50">
+                <p class="text-md text-slate-700 leading-relaxed mb-6">
+                    Dr. Arthur S. de Sena is currently a
+                    postdoctoral researcher in the <a href="https://www.6gflagship.com/" target="_blank">6G Flagship</a>
+                    at the University of Oulu, Finland. In this role, he
+                    conducts research and supervises students on advanced topics for future communication systems. Dr.
+                    Sena serves as Work Package Leader and Project Manager for the Business Finland projects Local 6G
+                    and <a href="https://www.6gflagship.com/6g-wisecom/" target="_blank">6G-WISECOM</a>.
+                    He also collaborates on impactful projects, including the European Union <a
+                        href="https://hexa-x-ii.eu/" target="_blank">Hexa-X-II</a>
+                    project and joint research initiatives with the <a href="https://cyberinitiative.org/"
+                        target="_blank">Commonwealth Cyber Initiative</a> at Virginia Tech, USA.
+                </p>
+                <p class="text-md text-slate-700 leading-relaxed mb-8">
+                    Previously, Dr. Sena was a
+                    researcher at the AI and Digital Science Research
+                    Center at the <a href="https://www.tii.ae/" target="_blank">Technology Innovation Institute</a>,
+                    Abu Dhabi, UAE (Nov. 2022 - May 2023). Before that, from 2019 to 2022,
+                    he was a junior researcher in the <a href="https://cpsglut.wordpress.com/" target="_blank">
+                        Cyber-Physical Systems Group</a> at LUT University,
+                    Lappeenranta, Finland. He received his D.Sc. degree
+                    (with distinction) in Electrical Engineering from LUT,
+                    Finland, in 2022, and the M.Sc. and B.Sc. degrees in
+                    Teleinformatics Engineering and Computer Engineering
+                    from the <a href="https://www.ufc.br/" target="_blank">Federal University of Ceará</a>, Brazil, in
+                    2019
+                    and 2017, respectively. During his bachelor's studies, he studied
+                    Computer Engineering as an exchange student at the
+                    Armour College of Engineering, <a href="https://www.iit.edu/" target="_blank"> Illinois Institute
+                        of Technology</a>, Chicago, USA (Aug. 2014 - Dec. 2015). Dr. Sena received
+                    the Nokia Foundation Award in October 2020, the LUT
+                    Research Foundation Award in December 2020, and the
+                    <a href="/documents/GC_2022_Best_Paper_Certificate.pdf" target="_blank">
+                        IEEE Global Communications Conference (GLOBECOM)
+                        Best Paper Award in December 2022</a>. He has authored
+                    several peer-reviewed papers in prestigious journals
+                    and flagship conferences. He serves as an Editor for IEEE Communications Letters
+                    and is a member of the IEEE Communications Society.
+                </p>
+                <h3 class="text-xl font-semibold text-slate-800 mb-6">Research Interests</h3>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-md text-slate-700 leading-relaxed mb-6">
+                    <li class="flex items-start"><i
+                            class="fas fa-check-circle text-sky-500 mr-2.5 mt-1 flex-shrink-0"></i>Wireless
+                        communication</li>
+                    <li class="flex items-start"><i
+                            class="fas fa-check-circle text-sky-500 mr-2.5 mt-1 flex-shrink-0"></i>Signal processing
+                    </li>
+                    <li class="flex items-start"><i
+                            class="fas fa-check-circle text-sky-500 mr-2.5 mt-1 flex-shrink-0"></i>Multi-linear algebra
+                    </li>
+                    <li class="flex items-start"><i
+                            class="fas fa-check-circle text-sky-500 mr-2.5 mt-1 flex-shrink-0"></i>Random matrix theory
+                    </li>
+                    <li class="flex items-start"><i
+                            class="fas fa-check-circle text-sky-500 mr-2.5 mt-1 flex-shrink-0"></i>Statistical
+                        performance analysis</li>
+                    <li class="flex items-start"><i
+                            class="fas fa-check-circle text-sky-500 mr-2.5 mt-1 flex-shrink-0"></i>Resource allocation
+                    </li>
+                    <li class="flex items-start"><i
+                            class="fas fa-check-circle text-sky-500 mr-2.5 mt-1 flex-shrink-0"></i>Machine learning</li>
+                    <li class="flex items-start"><i
+                            class="fas fa-check-circle text-sky-500 mr-2.5 mt-1 flex-shrink-0"></i>Physical-layer
+                        security</li>
+                    <li class="flex items-start"><i
+                            class="fas fa-check-circle text-sky-500 mr-2.5 mt-1 flex-shrink-0"></i>Next-generation
+                        multiple access techniques</li>
+                    <li class="flex items-start"><i
+                            class="fas fa-check-circle text-sky-500 mr-2.5 mt-1 flex-shrink-0"></i>Intelligent
+                        reflecting surfaces</li>
+                    <li class="flex items-start"><i
+                            class="fas fa-check-circle text-sky-500 mr-2.5 mt-1 flex-shrink-0"></i>Massive and
+                        Holographic MIMO</li>
+                    <li class="flex items-start"><i
+                            class="fas fa-check-circle text-sky-500 mr-2.5 mt-1 flex-shrink-0"></i>Cell-free massive
+                        MIMO</li>
+                    <li class="flex items-start"><i
+                            class="fas fa-check-circle text-sky-500 mr-2.5 mt-1 flex-shrink-0"></i>Integrated Sensing
+                        and Communication</li>
+                    <li class="flex items-start"><i
+                            class="fas fa-check-circle text-sky-500 mr-2.5 mt-1 flex-shrink-0"></i>Near-field
+                        communication</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="publications" class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-slate-100 fade-in-section">
+
+        <div class="container mx-auto">
+            <div class="text-center mb-12" id="publications-title-area"> <h2 class="text-3xl font-bold text-slate-800 mb-4">Publications</h2>
+                <div class="w-20 h-1 bg-sky-500 mx-auto rounded-full"></div>
+                <p id="total-publications-text" class="text-md text-slate-600 max-w-3xl mx-auto mt-5"></p>
+            </div>
         </div>
 
-        <div class="interests">
-            <h2 class="heading"><span>Research Interests</span><span></span></h2> 
-            <div class="interests-row">
-                
-                <div class="interests-column">
-                    <ul>
-                        <li> Wireless communication</li>
-                        <li> Signal processing</li>
-                        <li> Multi-linear algebra</li>
-                        <li> Random matrix theory</li>
-                        <li> Statistical performance analysis</li>
-                        <li> Resource allocation</li>
-                        <li> Machine learning</li>
-                    </ul>                
+        <div class="container mx-auto">
+            <div id="publicationChartContainer" class="mb-12">
+                <canvas id="publicationChart"></canvas>
+            </div>
+
+            <div id="publication-tabs" class="flex flex-wrap justify-center mb-12">
+                <button class="tab-button" data-filter="all">All</button>
+                <button class="tab-button" data-filter="journal">Journal Papers</button>
+                <button class="tab-button" data-filter="magazine">Magazine Papers</button>
+                <button class="tab-button" data-filter="conference">Conference Papers</button>
+                <button class="tab-button" data-filter="bookchapter">Book Chapters</button>
+            </div>
+
+            <div id="publication-content-area">
+
+                <div id="journal-papers-content" class="publication-category-content">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-10 text-center sm:text-left">Journal Papers</h3>
                 </div>
-                <div class="interests-column">
-                    <ul>
-                        <li> Physical-layer security</li>
-                        <li> Next-generation multiple access techniques</li>
-                        <li> Intelligent reflecting surfaces</li>
-                        <li> Massive and Holographic MIMO</li>
-                        <li> Cell-free massive MIMO</li>
-                        <li> Integrated Sensing and Communication</li>
-                        <li> Near-field communication</li>
-                    </ul>          
+
+                <div id="magazine-papers-content" class="publication-category-content">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-10 text-center sm:text-left">Magazine Papers</h3>
+                </div>
+
+                <div id="conference-papers-content" class="publication-category-content hidden">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-10 mt-16 text-center sm:text-left">Conference Papers</h3>
+                </div>
+
+                <div id="bookchapter-papers-content" class="publication-category-content hidden">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-10 mt-16 text-center sm:text-left">Book Chapters</h3>
                 </div>
             </div>
         </div>
     </section>
 
-    
-    
-
-
-
-
-    <!-- education section design -->
-    <!-- <section class="education" id="journey">
-        <h2 class="heading"><span>Journey</span><span></span></h2>
-
-        <div class="education-row">
-            <div class="education-column">
-                <h3 class="title">Education<span></span></h3>
-
-                <div class="education-box">
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year"><i class="bx bxs-calendar"></i> 2019 - 2022</div>
-                            <h3>DOCTOR OF SCIENCE DEGREE (WITH DISTINCTION) IN ELECTRICAL ENGINEERING</h3>
-                            <p><span>DOCTORAL DISSERTATION:</span> Intelligent Reflecting Surfaces and Advanced Multiple Access Techniques for Multi-Antenna Wireless Communication Systems. <a href="https://lutpub.lut.fi/handle/10024/164741" target="_blank"><img src="images/ext_logo.svg" title="Go to publication" class="icon_pub_link_no_bg"></a><br>
-                                </p>
-
-                                <p><span>SUPERVISORS:</span> Prof. Pedro Henrique Juliano Nardelli, Dr. Daniel Benevides da Costa,
-                                    and Prof. Petar Popovski. <br>
-                                    </p>
-
-                                    <p><span>UNIVERSITY:</span> Lappeenranta University of Technology, Finland.
-                                        </p>
-                        </div>
-                    </div>
-
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year"><i class="bx bxs-calendar"></i> 2018 - 2019</div>
-                            <h3>MASTER OF SCIENCE DEGREE IN TELEINFORMATICS ENGINEERING</h3>
-                            <p><span>MASTER'S DISSERTATION:</span> Design and performance enhancement of multi-cluster multi-user massive MIMO-NOMA networks. <a href="/documents/2019_dis_assena.pdf" target="_blank"><img src="images/ext_logo.svg" title="Go to publication" class="icon_pub_link_no_bg"></a><br>
-                                </p>
-
-                                <p><span>SUPERVISOR:</span> Dr. Daniel Benevides da Costa.<br>
-                                    </p>
-
-                                    <p><span>UNIVERSITY:</span> Federal University of Ceará, Brazil.
-                                        </p>
-                            
-                        </div>
-                    </div>
-
-
-
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year"><i class="bx bxs-calendar"></i> 2014 - 2015</div>
-                            <h3>EXCHANGE PROGRAM IN COMPUTER ENGINEERING</h3>
-                            <p><span>SUPERVISOR:</span> Prof. Bonnie Haferkamp.
-                                </p>
-                                <p><span>UNIVERSITY:</span> Illinois Institute of Technology, USA.
-                                    </p>
-                        </div>
-                    </div>
-
-
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year"><i class="bx bxs-calendar"></i> 2012 - 2017</div>
-                            <h3>BACHELOR OF SCIENCE DEGREE IN COMPUTER ENGINEERING</h3>
-                            <p><span>BACHELOR'S THESIS:</span> Analysis of OFDM Systems with Index Modulation and Non-Linear Power Amplifiers (in portuguese). <a href="/documents/2017_tcc_assena.pdf" target="_blank"><img src="images/ext_logo.svg" title="Go to publication" class="icon_pub_link_no_bg"></a><br>
-                                </p>
-                                <p><span>SUPERVISOR:</span> Prof. Carlos Alexandre Rolim Fernandes.<br>
-                                    </p>
-                                    <p><span>UNIVERSITY:</span> Federal University of Ceará, Brazil.
-                                        </p>
-                        </div>
-                    </div>
-
-
-                    
-
-                    
-                </div>
+    <section id="contact" class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-white fade-in-section">
+        <div class="container mx-auto">
+            <div class="text-center mb-6">
+                <h2 class="text-3xl font-bold text-slate-800 mb-4">Get In Touch</h2>
+                <div class="w-20 h-1 bg-sky-500 mx-auto rounded-full"></div>
+                <p class="text-md text-slate-600 max-w-2xl mx-auto mt-5">
+                    I am always open to discussing new research, collaborations, or opportunities.<br>
+                    Feel free to reach out!
+                </p>
             </div>
-
-            <div class="education-column">
-                <h3 class="title">Experience<span></span></h3>
-
-                <div class="education-box">
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year"><i class="bx bxs-calendar"></i> MAY 2023 - PRESENT</div>
-                            <h3>POSTDOCTORAL RESEARCHER</h3>
-                            <p><span>EMPLOYER:</span> University of Oulu, Oulu, Finland.
-                                </p>
-                        </div>
-                    </div>
-
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year"><i class="bx bxs-calendar"></i> NOV. 2022 - MAY 2023</div>
-                            <h3>RESEARCHER</h3>
-                            <p><span>EMPLOYER:</span> Technology Innovation Institute (TII), United Arab Emirates.
-                                </p>
-                        </div>
-                    </div>
-
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year"><i class="bx bxs-calendar"></i> NOV. 2022 - MAY 2023</div>
-                            <h3>JUNIOR RESEARCHER</h3>
-                            <p><span>EMPLOYER:</span> Lappeenranta University of Technology (LUT), Finland.
-                                </p>
-                        </div>
-                    </div>
-                    
-
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year"><i class="bx bxs-calendar"></i> SEP. 2019 - NOV. 2022</div>
-                            <h3>SOFTWARE TEST RESIDENCY PROGRAM</h3>
-                            <p><span>EMPLOYER:</span> Federal University of Pernambuco and Motorola Mobility, Brazil.
-                                </p>
-                        </div>
-                    </div>
-
-
-                    
-                </div>
+            <div class="max-w-xl mx-auto text-center">
+                <a href="mailto:arthurssena@ieee.org"
+                    class="inline-block bg-sky-600 hover:bg-sky-700 text-white font-semibold text-md py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                    arthurssena@ieee.org
+                </a>
             </div>
-        </div>
-    </section> -->
-
-    <!-- Publications section design -->
-    <section class="publications" id="publications">
-        <h2 class="heading"><span>Publications</span><span></span></h2>
-
-        <div class="publications-row">
-
-            <h3 class="title">Journal Papers<span></span></h3>
-
-
-            <div class="publications-box">
-                <div class="publications-content">
-                    <table class="hoverTable">
-                        <tr><td style="padding-right: 7rem; text-align: justify"> N. Ginige, A. S. de Sena, N. H. Mahmood, N. Rajatheva and M. Latva-aho, "Efficient Channel Prediction for Beyond Diagonal RIS-Assisted MIMO Systems with Channel Aging," IEEE Transactions on Vehicular Technology, 2025.
-                            <td><a href="https://ieeexplore.ieee.org/document/10945639" target="_blank"><img src="images/oieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                            <td><a href="https://arxiv.org/abs/2411.17725" target="_blank"><img src="images/xv_logo.svg" title="Access at arXiv" class="icon_pub_link"></a></td></tr>
-                    </table>
-                </div>
-                
-            </div>
-
-            <div class="publications-box">
-                <div class="publications-content">
-                    <table class="hoverTable">
-                        <tr><td style="padding-right: 7rem; text-align: justify"> F. Karim, N. H. Mahmood, A. S. de Sena, D. Kumar, B. Clerckx and M. Latva-aho, "Uplink Rate Splitting Multiple Access with Imperfect Channel State Information and Interference Cancellation," IEEE Wireless Communications Letters, 2025.
-                            <td><a href="https://ieeexplore.ieee.org/document/10870267" target="_blank"><img src="images/oieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                    </table>
-                </div>
-                
-            </div>
-
-
-
-            <div class="publications-box">
-                <div class="publications-content">
-                    <table class="hoverTable">
-                        <tr><td style="padding-right: 7rem; text-align: justify"> A. S. de Sena, M. Rasti, N. H. Mahmood, M. Latva-aho, “Beyond Diagonal RIS for Multi-Band Multi-Cell MIMO Networks: A Practical Frequency-Dependent Model and Performance Analysis,” IEEE Transactions on Wireless Communications, vol. 24, no. 1, pp. 749-766, Jan. 2025.
-                            <td><a href="https://ieeexplore.ieee.org/abstract/document/10766364" target="_blank"><img src="images/oieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                            <td><a href="https://arxiv.org/abs/2401.06475" target="_blank"><img src="images/xv_logo.svg" title="Access at arXiv" class="icon_pub_link"></a></td></tr>
-                    </table>
-                </div>
-                
-            </div>
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr>
-                                <td style="padding-right: .8rem; text-align: justify"> A. S. de Sena, J. Kibilda, N. H. Mahmood, A. Gomes, M. Latva-aho,
-                                “Malicious RIS versus Massive MIMO: Securing Multiple Access against RIS-based Jamming Attacks,”
-                                IEEE Wireless Communications Letters, vol. 13, no. 4, pp. 989-993, Apr. 2024.</td>
-                                <td><a href="https://ieeexplore.ieee.org/document/10402016" target="_blank"><img src="images/oieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                                <td><a href="https://arxiv.org/abs/2401.07149" target="_blank"><img src="images/xv_logo.svg" title="Access at arXiv" class="icon_pub_link"></a></td>
-                            </tr>
-                        </table>
-                    </div>
-                    
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: .8rem; text-align: justify">P. E. G. Silva, P. H. J. Nardelli, A. S. de Sena, Harun Siljak, Niko Nevaranta, Nicola Marchetti, and Rausley A. A. de Souza, “Semantic-Functional Communications in Cyber-Physical Systems,” IEEE Network Magazine, vol. 38, no. 4, pp. 241-249, Jul. 2024.</td>
-                                <td><a href="https://ieeexplore.ieee.org/document/10304212" target="_blank"><img src="images/ieee_logo.svg" title="Access at arXiv" class="icon_pub_link"></a></td>
-                                <td><a href="https://arxiv.org/abs/2305.19710" target="_blank"><img src="images/xv_logo.svg" title="Access at arXiv" class="icon_pub_link"></a></td>
-                            </tr>
-                        </table>
-                    </div>
-                    
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: .8rem; text-align: justify">A. S. de Sena, P. H. J. Nardelli, D. B. da Costa, P. Popovski, C. B. Papadias, and M. Debbah, “Dual-Polarized Massive MIMO-RSMA Networks: Tackling Imperfect SIC,” IEEE Transactions on Wireless Communications, vol. 22, no. 5, pp. 3194-3215, May 2023.
-                                <td><a href="https://ieeexplore.ieee.org/abstract/document/9932426" target="_blank"><img src="images/ieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                                <td><a href="https://arxiv.org/abs/2211.00851" target="_blank"><img src="images/xv_logo.svg" title="Access preprint" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                    
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: 7rem; text-align: justify">A. S. de Sena, P. H. J. Nardelli, D. B. da Costa, P. Popovski, C. B. Papadias, and M. Debbah, “Dual-Polarized RSMA for Massive MIMO Systems,” IEEE Wireless Communications Letters, vol. 11, no. 9, pp. 2000-2004, Sep. 2022.
-                                <td><a href="https://ieeexplore.ieee.org/abstract/document/9830742" target="_blank"><img src="images/oieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                    
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: .8rem; text-align: justify">A. S. de Sena, P. H. J. Nardelli, D. B. da Costa, P. Popovski, and C. B. Papadias, “Rate-Splitting Multiple Access and its Interplay with Intelligent Reflecting Surfaces”, IEEE Communications Magazine, vol. 60, no. 7, pp. 52-57, Jul. 2022.
-                                <td><a href="https://ieeexplore.ieee.org/abstract/document/9779642" target="_blank"><img src="images/ieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                                <td><a href="https://arxiv.org/abs/2205.12207" target="_blank"><img src="images/xv_logo.svg" title="Access at arXiv" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                    
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: 7rem; text-align: justify">B. K. S. Lima, A. S. de Sena, R. Dinis, D. B. Da Costa, M. Beko, R. Oliveira, M. Debbah, “Aerial Intelligent Reflecting Surfaces in MIMO-NOMA Networks: Fundamentals, Potential Achievements, and Challenges,” IEEE Open Journal of the Communications Society, vol. 3, pp. 1007-1024, Jun. 2022.<td><a href="https://ieeexplore.ieee.org/abstract/document/9794781" target="_blank"><img src="images/oieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                    
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: 7rem; text-align: justify">A. Narayanan, M. S. Korium, D. C. Melgarejo, H. M. Hussain, A. S. de Sena, P. E Goria Silva, D. G. Rojas, M. Ullah, A. E. Nezhad, M. Rasti, E. Pournaras, P. H. J. Nardelli, “Collective Intelligence Using 5G: Concepts, Applications, and Challenges in Sociotechnical Environments,” IEEE Access, vol. 10, pp. 70394-70417, Jun. 2022.<td><a href="https://ieeexplore.ieee.org/abstract/document/9798820" target="_blank"><img src="images/oieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                    
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: .8rem; text-align: justify">A. S. de Sena, P. H. J. Nardelli, D. B. da Costa, F. R. M. Lima, L. Yang, P. Popovski, Z. Ding, and C. B. Papadias, “IRS-Assisted Massive MIMO-NOMA Networks: Exploiting Wave Polarization,” IEEE Transactions on Wireless Communications, vol. 20, no. 11, pp. 7166-7183, Nov. 2021.
-                                <td><a href="https://ieeexplore.ieee.org/abstract/document/9440813" target="_blank"><img src="images/ieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                                <td><a href="https://arxiv.org/abs/2012.03639" target="_blank"><img src="images/xv_logo.svg" title="Access at arXiv" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                    
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: 7rem; text-align: justify">A. S. de Sena, P. H. J. Nardelli, D. B. d. Costa, U. S. Dias, P. Popovski and C. B. Papadias, “Dual-Polarized IRSs in Uplink MIMO-NOMA Networks: An Interference Mitigation Approach,” IEEE Wireless Communications Letters, vol. 10, pp. 2284-2288, Oct. 2021.<td><a href="https://ieeexplore.ieee.org/abstract/document/9495942" target="_blank"><img src="images/oieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                    
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: 7rem; text-align: justify">R. C. Moioli, P. H. J. Nardelli, M. T. Barros, W. Saad, A. Hekmatmanesh, P. E. G. Silva, A. S. de Sena, M. Dzaferagic, H. Siljak, W. V. Leekwijck, D. C. Melgarejo and S. Latré, “Neurosciences and Wireless Networks: The Potential of Brain-Type Communications and Their Applications,” IEEE Communications Surveys & Tutorials, vol. 23, pp. 1599-1621, Jun. 2021.<td><a href="https://ieeexplore.ieee.org/abstract/document/9463475" target="_blank"><img src="images/oieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                    
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: .8rem; text-align: justify">A. S. de Sena, D. Carrillo, F. Fang, P. H. J. Nardelli, D. B. da Costa, U. S. Dias, Z. Ding, C. B. Papadias, and W. Saad, “What Role Do Intelligent Reflecting Surfaces Play in Multi-Antenna Non-Orthogonal Multiple Access?”, IEEE Wireless Communications, vol. 27, no. 5, pp. 24-31, Oct. 2020.
-                                <td><a href="https://ieeexplore.ieee.org/abstract/document/9241881" target="_blank"><img src="images/ieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                                <td><a href="https://arxiv.org/abs/2009.09459" target="_blank"><img src="images/xv_logo.svg" title="Access at arXiv" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                    
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: 7rem; text-align: justify">A. Narayanan, A. S. de Sena, D. Gutierrez-Rojas, D. C. Melgarejo, H. M. Hussain, M.	Ullah, S. Bayhan, and P. H. J. Nardelli, "Key Advances in Pervasive Edge Computing for Industrial Internet of Things in 5G and Beyond," IEEE Access, 8, pp. 206734–206754, Nov. 2020.<td><a href="https://ieeexplore.ieee.org/abstract/document/9257390" target="_blank"><img src="images/oieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                    
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: .8rem; text-align: justify">A. S. de Sena, F. R. M. Lima, D. B. da Costa, Z. Ding, P. H. J. Nardelli, U. S. Dias, and C. B. Papadias, “Massive MIMO-NOMA Networks with Imperfect SIC: Design and Fairness Enhancement”, IEEE Transactions on Wireless Communications, vol. 19, no. 9, pp. 6100-6115, Sep. 2020.
-                                <td><a href="https://ieeexplore.ieee.org/abstract/document/9115309" target="_blank"><img src="images/ieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                                <td><a href="https://lutpub.lut.fi/handle/10024/161234" target="_blank"><img src="images/lutp_logo.svg" title="Access at LUTPub" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                    
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: .8rem; text-align: justify">A. S. de Sena, D. B. da Costa, Z. Ding, P. H. J. Nardelli, U. S. Dias, and C. B. Papadias, “Massive MIMO-NOMA Networks with Successive Sub-Array Activation”, IEEE Transactions on Wireless Communications, vol. 19, no. 3, pp. 1622-1635, Mar. 2020.
-                                <td><a href="https://ieeexplore.ieee.org/abstract/document/8922898" target="_blank"><img src="images/ieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                                <td><a href="https://lutpub.lut.fi/handle/10024/160759" target="_blank"><img src="images/lutp_logo.svg" title="Access at LUTPub" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                    
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: .8rem; text-align: justify">A. S. de Sena, D. B. da Costa, Z. Ding, and P. H. J. Nardelli, “Massive MIMO-NOMA Networks with Multi-Polarized Antennas”, IEEE Transactions on Wireless Communications, vol. 18, no. 12, pp. 5630-5642, Dec. 2019.
-                                <td><a href="https://ieeexplore.ieee.org/abstract/document/8824220" target="_blank"><img src="images/ieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                                <td><a href="https://lutpub.lut.fi/handle/10024/160067" target="_blank"><img src="images/lutp_logo.svg" title="Access at LUTPub" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                    
-                </div>
-
-
-
-
-
-            <div class="gap-60"></div>
-            <div class="publications-row"></div>
-            
-            <h3 class="title">Conference Papers<span></span></h3>
-
-
-            <div class="publications-box">
-                <div class="publications-content">
-                    <table class="hoverTable">
-                        <tr><td style="padding-right: 7rem; text-align: justify">A. Basaure, A. S. de Sena, M. Matinmikko-Blue, S. Yrjölä, and P. Ahokangas, “Utility-based Interference Coordination for Local Spectrum Licensing in 6G”, in Proc. IEEE International Symposium on Dynamic Spectrum Access Networks (DySPAN 2025), May 2025, London, United Kingdom (Accepted).
-                    </table>
-                </div>
-                
-            </div>
-
-
-            
-            <div class="publications-box">
-                <div class="publications-content">
-                    <table class="hoverTable">
-                        <tr><td style="padding-right: 7rem; text-align: justify">A. S. de Sena, A. Gomes, J. Kibiłda, N. H. Mahmood, L. A. DaSilva, M. Latva-aho, “Malicious RIS Meets RSMA: Unveiling the Robustness of Rate Splitting to RIS-Induced Attacks”, in Proc. IEEE Global Communications Conference (GLOBECOM 2024), Dec. 2024, Cape Town, South Africa.
-                            <td><a href="https://ieeexplore.ieee.org/document/10901757" target="_blank"><img src="images/ieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                            <td><a href="https://arxiv.org/abs/2408.13035" target="_blank"><img src="images/xv_logo.svg" title="Access at arXiv" class="icon_pub_link"></a></td>
-                    </table>
-                </div>
-                
-            </div>
-
-            <div class="publications-box">
-                <div class="publications-content">
-                    <table class="hoverTable">
-                        <tr><td style="padding-right: 7rem; text-align: justify">A. Gomes, A. S. de Sena, N. H. Mahmood, M. Latva-aho, L. A. DaSilva and J. Kibiłda, "Beam Management Manipulation with Adversarial Reconfigurable Intelligent Surfaces," in Proc. IEEE Global Communications Conference (GLOBECOM 2024), Dec. 2024, Cape Town, South Africa.
-                            <td><a href="https://ieeexplore.ieee.org/document/10900964" target="_blank"><img src="images/ieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                            <!-- <td><a href="" target="_blank"><img src="images/xv_logo.svg" title="Access at arXiv" class="icon_pub_link"></a></td> -->
-                    </table>
-                </div>
-                
-            </div>
-
-
-            <div class="publications-box">
-                <div class="publications-content">
-                    <table class="hoverTable">
-                        <tr><td style="padding-right: 7rem; text-align: justify">I. R. Koralege, A. S. de Sena, N. H. Mahmood, F. Karim, D. Lesthuruge, S. Gunarathne, "A Deep-Unfolding Approach to RIS Phase Shift Optimization Via Transformer-Based Channel Prediction," in Proc. SIMS EUROSIM Conference on Modelling and Simulation, Sep. 2024, Oulu, Finland.
-                            <td><a href="https://ecp.ep.liu.se/index.php/sims/article/view/1118" target="_blank"><img src="images/ext_logo.svg" title="Access at SIMS" class="icon_pub_link"></a></td>
-                            <td><a href="https://arxiv.org/abs/2502.18280" target="_blank"><img src="images/xv_logo.svg" title="Access at arXiv" class="icon_pub_link"></a></td>
-                    </table>
-                </div>
-            </div>
-
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: 7rem; text-align: justify">N. Ginige, A. S. de Sena, N. H. Mahmood, N. Rajatheva and M. Latva-aho, "Machine Learning-Based Channel Prediction for RIS-Assisted MIMO Systems with Channel Aging," in Proc. IEEE Wireless Communications and Networking Conference (WCNC), Apr. 2024, Dubai, UAE.
-                                <td><a href="https://ieeexplore.ieee.org/abstract/document/10570599" target="_blank"><img src="images/ieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                                <td><a href="https://arxiv.org/abs/2406.07387" target="_blank"><img src="images/xv_logo.svg" title="Access at arXiv" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: 7rem; text-align: justify">F. Karim, N. H. Mahmood, A. S. de Sena, D. Kumar, O. L. A. Lopez and M. Latva-Aho, "SWIPT-Enabled RSMA Downlink Networks with Imperfect CSI and SIC," in Proc. IEEE Wireless Communications and Networking Conference (WCNC), Apr. 2024, Dubai, UAE.
-                                <td><a href="https://ieeexplore.ieee.org/abstract/document/10570853" target="_blank"><img src="images/ieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                                <td><a href="https://oulurepo.oulu.fi/bitstream/handle/10024/51158/nbnfioulu-202407055125.pdf?sequence=1" target="_blank"><img src="images/ext_logo.svg" title="Access at OuluREPO" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: 7rem; text-align: justify">A. S. de Sena, J. He, A. A. Hammadi, C. Huang, F. Bader, M. Debbah, M. Fink, "On the Sum Secrecy Rate of Multi-User Holographic MIMO Networks", in Proc. IEEE International Conference on Communications (ICC 2024), Jun. 2024, Denver, CO, USA.
-                                <td><a href="https://ieeexplore.ieee.org/abstract/document/10622883" target="_blank"><img src="images/ieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                                <td><a href="https://arxiv.org/abs/2310.14217" target="_blank"><img src="images/xv_logo.svg" title="Access at arXiv" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                </div>
-
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: 7rem; text-align: justify">J. He, A. Fakhreddine, A. S. de Sena, Y. Tian, and M. Debbah, "Unleashing 3D Connectivity in Beyond 5G Networks with Reconfigurable Intelligent Surfaces", in Proc. Asilomar Conf. Signals Syst. Comput., Nov. 2023, Pacific Grove, CA, USA.
-                                <td><a href="https://ieeexplore.ieee.org/abstract/document/10476792" target="_blank"><img src="images/ieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                                <td><a href="https://arxiv.org/abs/2305.04661" target="_blank"><img src="images/xv_logo.svg" title="Access at arXiv" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: .8rem; text-align: justify">A. S. de Sena, D. B. da Costa, P. H. J. Nardelli, F. Bader, and M. Debbah, “Massive IRS-MIMO-RSMA with Polarization Multiplexing: An Enhanced SIC-Free Approach”, in Proc. IEEE International Conference on Communications (ICC 2023), May 2023, Rome, Italy.
-                                <td><a href="https://ieeexplore.ieee.org/abstract/document/10279206" target="_blank"><img src="images/ieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                                <td><a href="https://drive.google.com/file/d/1BJa93IxFnAkMU2-afs-YUlAgVSh0q2Pw/view" target="_blank"><img src="images/ext_logo.svg" title="Access preprint" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                    
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: .8rem; text-align: justify">A. S. de Sena, P. H. J. Nardelli, D. B. da Costa, P. Popovski, C. B. Papadias, and M. Debbah, “RSMA for Dual-Polarized Massive MIMO Networks: A SIC-Free Approach”, in Proc. IEEE Global Communications Conference (GLOBECOM 2022), Dec. 2022, Rio de Janeiro, Brazil (<a href="/documents/GC_2022_Best_Paper_Certificate.pdf" target="_blank">Best Paper Award</a>).
-                                <td><a href="https://ieeexplore.ieee.org/abstract/document/10001268" target="_blank"><img src="images/ieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                                <td><a href="https://arxiv.org/abs/2212.04850" target="_blank"><img src="images/xv_logo.svg" title="Access at arXiv" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                    
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: .8rem; text-align: justify">S. K. Taskou, M. Rasti, P. H. J. Nardelli and A. S. de Sena, “Distributed Joint Power and Rate Control for NOMA/OFDMA in 5G and Beyond”, in Proc. IEEE Global Communications Conference (GLOBECOM 2021), Dec. 2021, Madrid, Spain.
-                                <td><a href="https://ieeexplore.ieee.org/document/9685382" target="_blank"><img src="images/ieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                                <td><a href="https://arxiv.org/abs/2109.09015" target="_blank"><img src="images/xv_logo.svg" title="Access at arXiv" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                    
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: .8rem; text-align: justify">A. S. de Sena, P. H. J. Nardelli, D. B. da Costa, F. R. M. Lima, L. Yang, P. Popovski, Z. Ding, and C. B. Papadias, “IRS-Assisted Massive MIMO-NOMA Networks with Polarization Diversity”, Accepted in Proc. IEEE International Conference on Communications (ICC 2021), Jun. 2021, Montreal, Canada.
-                                <td><a href="https://ieeexplore.ieee.org/abstract/document/9473595" target="_blank"><img src="images/ieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                                <td><a href="https://arxiv.org/abs/2105.12952" target="_blank"><img src="images/xv_logo.svg" title="Access at arXiv" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                    
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: .8rem; text-align: justify">D. C. Melgarejo, C. Kalalas, A. S. de Sena, P. H. J. Nardelli and G. Fraidenraich, “Reconfigurable Intelligent Surface-Aided Grant-Free Access for Uplink URLLC”, in Proc. 6G Wireless Summit (6G SUMMIT 2020), Mar. 2020, Levi, Finland.
-                                <td><a href="https://ieeexplore.ieee.org/abstract/document/9083788" target="_blank"><img src="images/ieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                                <td><a href="https://lutpub.lut.fi/handle/10024/160986" target="_blank"><img src="images/lutp_logo.svg" title="Access at LUTPub" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                    
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: .8rem; text-align: justify">A. S. de Sena, D. B. da Costa, Z. Ding, P. H. J. Nardelli, U. S. Dias, and C. B. Papadias, “Successive Sub-Array Activation for Massive MIMO-NOMA Networks”, in Proc. IEEE International Conference on Communications (ICC 2020), Jun. 2020, Dublin, Ireland.
-                                <td><a href="https://ieeexplore.ieee.org/abstract/document/9149116" target="_blank"><img src="images/ieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                                <td><a href="https://lutpub.lut.fi/handle/10024/161512" target="_blank"><img src="images/lutp_logo.svg" title="Access at LUTPub" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                    
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: .8rem; text-align: justify">A. S. de Sena, D. B. da Costa, Z. Ding, and P. H. J. Nardelli, “On the Performance of Massive MIMO-NOMA Networks with Dual-Polarized Antenna Array”, in Proc. IEEE Global Communications Conference (GLOBECOM 2019), Dec. 2019, Big Island, Hawaii, USA.
-                                <td><a href="https://ieeexplore.ieee.org/abstract/document/9014021" target="_blank"><img src="images/ieee_logo.svg" title="Access at IEEE" class="icon_pub_link"></a></td>
-                                <td><a href="https://fireman-project.eu/attachments/article/11/Sena_Globecom.pdf" target="_blank"><img src="images/ext_logo.svg" title="Go to publication" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                    
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: 7rem; text-align: justify">A. S. de Sena and C. A. R. Fernandes, “Análise de Sistemas OFDM com Modulação por Índice e Amplificador de Potência Não Linear”, in Proc. Brazilian Telecommun. Symp. (SBrT 2017), pp. 313-317, 2017, São Paulo, Brazil.
-                                <td><a href="https://biblioteca.sbrt.org.br/articles/546" target="_blank"><img src="images/ext_logo.svg" title="Go to publication" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                    
-                </div>
-
-                
-
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: 7rem; text-align: justify">C. D. B. Borges, J. A. Carvalho, A. S. de Sena, and J. C Nascimento. “Interface de Aplicação NFC em Hardware Livre para Pagamentos Móveis”, in Proc. Unified Computing Meeting (ENUCOMP 2014), pp. 133-142, 2014, Parnaíba, Brazil.<td><a href="https://www.enucomp.com.br/2014/editais/AnaisVIIENUCOMP2014.pdf" target="_blank"><img src="images/ext_logo.svg" title="Go to publication" class="icon_pub_link"></a></td>
-                        </table>
-                    </div>
-                    
-                </div>
-
-            
-            <div class="publications-row"></div>
-
-            <div class="gap-60"></div>
-            <h3 class="title">Book Chapters<span></span></h3>
-
-            <!-- <div class="publications-row"> -->
-                <div class="publications-box">
-                    <div class="publications-content">
-                        <table class="hoverTable">
-                            <tr><td style="padding-right: 7rem; text-align: justify">A. S. de Sena, M. Ullah, and P. H. J. Nardelli, “Edge Computing in Smart Grids”, Handbook of Smart Energy Systems, Springer, Cham, Switzerland, 2022.<td><a href="https://link.springer.com/referenceworkentry/10.1007/978-3-030-72322-4_106-1" target="_blank"><img src="images/ext_logo.svg" title="Go to publication" class="icon_pub_link"></a></td>    
-                        </table>
-                    </div>
-                    
-                <!-- </div> -->
-                
-                
-
-            </div>
-
-            
-
-
-
-
         </div>
     </section>
 
-
-    <!-- footer design -->
-    <footer class="footer">
-        <div class="footer-text">
-            <p>That"s all folks!</p>
-        </div>
-
-        <div class="footer-text">
-            <p>Email: <span>arthurssena@ieee.org</span></p>
-        </div>
-
-        <div class="footer-iconTop">
-            <a href="#"><i class="bx bx-up-arrow-alt"></i></a>
+    <footer class="bg-slate-900 text-slate-400 text-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto">
+            <p class="text-xs">
+                &copy; <span id="currentYear"></span> Arthur S. de Sena. All rights reserved.
+            </p>
         </div>
     </footer>
 
+    <button id="scrollToTopBtn" title="Go to top"
+        class="hidden fixed bottom-8 right-8 p-3 bg-sky-600 hover:bg-sky-700 text-white rounded-full shadow-xl transition-all duration-300 focus:outline-none z-50 transform hover:scale-110">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"></path>
+        </svg>
+    </button>
 
     <script src="script.js"></script>
 </body>
