@@ -236,7 +236,6 @@ body {
     transform: translateY(20px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
-
 .fade-in-section.is-visible {
     opacity: 1;
     transform: translateY(0);
@@ -263,4 +262,27 @@ body {
 .active-category-title {
     color: #111827 !important;    /* Tailwind's sky-500, or choose another prominent color */
     /* You could also add a small icon here if desired using ::before or ::after */
+}
+
+/* style.css */
+#publications {
+    /* background-color: #f1f5f9; /* Fallback: slate-100 */
+    /* A very subtle gradient from an even lighter gray/white to slate-100 */
+    background-image: linear-gradient(to bottom, #f8fafc, #f1f5f9); /* slate-50 to slate-100 */
+    /* Or from white to slate-100 */
+    /* background-image: linear-gradient(to bottom, #ffffff, #f1f5f9); */
+}
+
+/* .publication-list > li > div {
+    background-color: #f8fafc !important;
+} */
+
+.section-divider-shadow {
+    /* Adjust these values to get your desired shadow look and feel.
+    This example is a soft, somewhat spread-out shadow.
+       Format: offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 0 10px 15px -8px rgba(0, 0, 0, 0.08), /* Softer, larger shadow */
+                0 4px 6px -3px rgba(0, 0, 0, 0.06);   /* Tighter, slightly more defined shadow */
+    position: relative; /* Good for managing stacking context if needed, though often not strictly necessary here */
+    z-index: 1;         /* Ensures the shadow of an upper section can render over the start of the next section if there's no margin/padding */
 }
