@@ -259,16 +259,12 @@ body {
     transition: color 0.3s ease-in-out, font-weight 0.3s ease-in-out; /* Smooth transition */
 }
 
-.active-category-title {
-    color: #111827 !important;    /* Tailwind's sky-500, or choose another prominent color */
-    /* You could also add a small icon here if desired using ::before or ::after */
-}
 
 /* style.css */
 #publications {
     /* background-color: #f1f5f9; /* Fallback: slate-100 */
     /* A very subtle gradient from an even lighter gray/white to slate-100 */
-    background-image: linear-gradient(to bottom, #f8fafc, #f1f5f9); /* slate-50 to slate-100 */
+    background-image: linear-gradient(to bottom, #f7fbff, #eaf3fc); /* slate-50 to slate-100 */
     /* Or from white to slate-100 */
     /* background-image: linear-gradient(to bottom, #ffffff, #f1f5f9); */
 }
@@ -277,12 +273,17 @@ body {
     background-color: #f8fafc !important;
 } */
 
+
 .section-divider-shadow {
-    /* Adjust these values to get your desired shadow look and feel.
-    This example is a soft, somewhat spread-out shadow.
-       Format: offset-x | offset-y | blur-radius | spread-radius | color */
-    box-shadow: 0 10px 15px -8px rgba(0, 0, 0, 0.08), /* Softer, larger shadow */
-                0 4px 6px -3px rgba(0, 0, 0, 0.06);   /* Tighter, slightly more defined shadow */
-    position: relative; /* Good for managing stacking context if needed, though often not strictly necessary here */
-    z-index: 1;         /* Ensures the shadow of an upper section can render over the start of the next section if there's no margin/padding */
+    box-shadow: 0 10px 15px -8px rgba(0, 0, 0, 0.08),
+                0 4px 6px -3px rgba(0, 0, 0, 0.06);
+    position: relative; /* Keep this so z-index can be applied */
+}
+
+#about.section-divider-shadow {
+    z-index: 3; /* Highest z-index for the first shadowed section */
+}
+
+#publications.section-divider-shadow {
+    z-index: 2; /* Lower z-index for the next shadowed section */
 }
