@@ -274,16 +274,30 @@ body {
 } */
 
 
-.section-divider-shadow {
-    box-shadow: 0 10px 15px -8px rgba(0, 0, 0, 0.08),
-                0 4px 6px -3px rgba(0, 0, 0, 0.06);
-    position: relative; /* Keep this so z-index can be applied */
+/* Dedicated shadow for the Hero section */
+.hero-bottom-shadow {
+    box-shadow: 0 15px 22px -8px rgba(0, 0, 0, 0.285),
+                0 14px 10px -3px rgba(0, 0, 0, 0.156);
+    position: relative; /* Necessary for z-index to apply */
 }
 
-#about.section-divider-shadow {
-    z-index: 3; /* Highest z-index for the first shadowed section */
+/* More subtle shadow for regular content sections */
+.content-section-bottom-shadow {
+    box-shadow: 0 12px 15px -8px rgba(0, 0, 0, 0.08), /* Original subtle shadow */
+                0 6px 6px -3px rgba(0, 0, 0, 0.06);
+    position: relative; /* Necessary for z-index to apply */
 }
 
-#publications.section-divider-shadow {
-    z-index: 2; /* Lower z-index for the next shadowed section */
+/* z-index hierarchy (adjust selectors to use new class names if needed, but ID is fine) */
+/* These rules ensure correct layering when these shadow classes are applied */
+#home.hero-bottom-shadow { /* Use the specific class applied to #home */
+    z-index: 4;
+}
+
+#about.content-section-bottom-shadow { /* Use the specific class applied to #about */
+    z-index: 3;
+}
+
+#publications.content-section-bottom-shadow { /* Use the specific class applied to #publications */
+    z-index: 2;
 }
