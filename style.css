@@ -291,10 +291,18 @@ body {
 /* z-index hierarchy (adjust selectors to use new class names if needed, but ID is fine) */
 /* These rules ensure correct layering when these shadow classes are applied */
 #home.hero-bottom-shadow { /* Use the specific class applied to #home */
-    z-index: 4;
+    z-index: 6;
 }
 
 #about.content-section-bottom-shadow { /* Use the specific class applied to #about */
+    z-index: 5;
+}
+
+#education.content-section-bottom-shadow { /* Use the specific class applied to #education */
+    z-index: 4;
+}
+
+#awards.content-section-bottom-shadow { /* Use the specific class applied to #awards */
     z-index: 3;
 }
 
